@@ -1,13 +1,10 @@
 package com.tkhospital.controller;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
+import java.io.PrintWriter;
 import java.util.List;
-import java.util.Locale;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,31 +13,38 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.tkhospital.dao.BoardDAO;
+import com.tkhospital.common.ScriptUtils;
 import com.tkhospital.dto.BoardDTO;
-import com.tkhospital.dto.MemberDTO;
-import com.tkhospital.dto.testDTO;
 import com.tkhospital.service.BoardService;
-import com.tkhospital.service.TestService;
+
 
 /**
  * Handles requests for the application home page.
  */
+
+
+
 @Controller
 @RequestMapping("/board/*")
 public class BoardController {
 
 	@Inject
 	private BoardService service2;
-
+	
+	ScriptUtils ScriptUtils = new ScriptUtils();
+	
+	
 	
 	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	
-		//board/list
+		//board/list.
+	
 	@RequestMapping("list")
-	public String boardList(Model model) throws Exception {
+	public String boardList(Model model,HttpServletResponse response) throws Exception {
+		
+		//ScriptUtils.alert(response, "zz");
+		
 		List<BoardDTO> list = service2.boardList();
 		model.addAttribute("list2",list);
 		return "board/list"; //board/list.jsp
@@ -68,11 +72,16 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "Write",method = RequestMethod.POST)
-	public String boardWrite(Model model,BoardDTO DTO) throws Exception {
-		service2.boardWrite(DTO);
-		List<BoardDTO> list = service2.boardList();
-		model.addAttribute("list2",list);
-		return "board/list"; 
+	public String boardWrite(Model model,BoardDTO DTO,HttpServletResponse response) throws Exception {
+		
+		
+		System.out.println("결과 : " + service2.boardWrite(DTO));
+		
+		
+		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./list");
+//		List<BoardDTO> list = service2.boardList();
+//		model.addAttribute("list2",list);
+		return ""; 
 	}
 	
 	@RequestMapping(value = "EditForm",method = RequestMethod.GET)
@@ -84,6 +93,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "Update",method = RequestMethod.POST)
 	public String boardUpdate(Model model,BoardDTO DTO) throws Exception {
+		
 		service2.boardUpdate(DTO);
 		List<BoardDTO> list = service2.boardList();
 		model.addAttribute("list2",list);

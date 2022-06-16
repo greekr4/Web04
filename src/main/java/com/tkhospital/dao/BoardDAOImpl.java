@@ -27,8 +27,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 
 	@Override
-	public void boardWrite(BoardDTO DTO) throws Exception {
-		sqlSession.insert(namespace+".boardWrite",DTO);
+	public int boardWrite(BoardDTO DTO) throws Exception {
+		return sqlSession.insert(namespace+".boardWrite",DTO);
 	}
 
 	@Override

@@ -26,8 +26,8 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void boardWrite(BoardDTO DTO) throws Exception {
-		dao.boardWrite(DTO);
+	public int boardWrite(BoardDTO DTO) throws Exception {
+		return dao.boardWrite(DTO);
 	}
 
 	@Override

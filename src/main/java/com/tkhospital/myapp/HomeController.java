@@ -44,7 +44,7 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 * @throws Exception 
 	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
@@ -66,14 +66,14 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/test",method = RequestMethod.GET)
+	@RequestMapping(value = "test",method = RequestMethod.GET)
 	public String test(Locale locale, Model model) {
 		logger.info("테스트페이지");
 		model.addAttribute("msg","테스트");
 		return "test";
 	}
 	
-	@RequestMapping(value = "/map",method = RequestMethod.GET)
+	@RequestMapping(value = "map",method = RequestMethod.GET)
 	public ModelAndView test2(Locale locale, Model model) {
 		logger.info("맵테스트페이지");
 		HashMap<String,String> map = new HashMap<String, String>();
@@ -82,7 +82,7 @@ public class HomeController {
 		return new ModelAndView("maptest","map",map);
 	}
 	
-	@RequestMapping(value = "/doC",method = RequestMethod.GET)
+	@RequestMapping(value = "doC",method = RequestMethod.GET)
 	public ModelAndView doC(Locale locale, Model model) {
 		logger.info("리스트테스트");
 		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
@@ -97,7 +97,7 @@ public class HomeController {
 		return new ModelAndView("listtest","list",list);
 	}
 	
-	@RequestMapping(value = "/doD",method = RequestMethod.GET)
+	@RequestMapping(value = "doD",method = RequestMethod.GET)
 	public String doD(Locale locale, Model model) {
 		//해당 url로 자동포워딩후 이동됨
 		return "redirect:/doD";

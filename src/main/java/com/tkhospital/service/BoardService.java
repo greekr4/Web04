@@ -12,7 +12,7 @@ public interface BoardService {
 	public BoardDTO boardRead(int no) throws Exception;
 	
 	//글 쓰기
-	public void boardWrite(BoardDTO DTO) throws Exception;
+	public int boardWrite(BoardDTO DTO) throws Exception;
 	
 	//글 수정
 	public void boardUpdate(BoardDTO DTO) throws Exception;
