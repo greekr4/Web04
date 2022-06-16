@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="com.tkhospital.testMapper">
+   <select id="test" resultType="com.tkhospital.dto.testDTO" >
+      select * from shop_member
+   </select>
+    <select id="test2" resultType="String" >
+      select mid from shop_member where mno = 1 
+   </select>
+</mapper>
