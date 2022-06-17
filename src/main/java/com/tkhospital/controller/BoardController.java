@@ -4,12 +4,14 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -92,12 +94,11 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "Update",method = RequestMethod.POST)
-	public String boardUpdate(Model model,BoardDTO DTO) throws Exception {
+	public String boardUpdate(Model model,BoardDTO DTO,HttpServletResponse response ) throws Exception {
 		
 		service2.boardUpdate(DTO);
-		List<BoardDTO> list = service2.boardList();
-		model.addAttribute("list2",list);
-		return "board/list"; 
+		ScriptUtils.alertAndBackPage(response, "수정완료");
+		return ""; 
 	}
 	
 	
