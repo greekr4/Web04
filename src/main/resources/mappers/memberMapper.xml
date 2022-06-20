@@ -11,8 +11,42 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 	</select>
 	
 	<select id="memberLogin" resultType="com.tkhospital.dto.MemberDTO">
-		select * from shop_member where mid = #{mid } and mpw = #{mpw }
+		select * from shop_member where mid = #{mid }
 	</select>
-
-
+	
+	<insert id="memberCreate">
+	insert into shop_member values(
+					(select nvl(max(mno),0)+1 from shop_member),
+					#{mid},
+					#{mpw},
+					#{mname},
+					#{mtel},
+					#{maddress},
+					#{memail},
+					#{mnick},
+					#{mcash},
+					#{mpoint},
+					#{mgrade},
+					sysdate,
+					sysdate
+					)
+	</insert>
+	<select id="memberIDCK" resultType="int">
+	select count(*) from shop_member where mid=#{mid}
+	</select>
+	
+	
+	<update id="memberUpdate">
+	update shop_member set 
+					mpw=#{mpw},
+					mtel=#{mtel},
+					maddress=#{maddress},
+					memail=#{memail},
+					mnick=#{mnick},
+					mcash=#{mcash},
+					mpoint=#{mpoint},
+					mgrade=#{mgrade} 
+					where mid=#{mid}
+	
+	</update>
 	 </mapper>

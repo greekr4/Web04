@@ -81,8 +81,8 @@
             <div class="login-page">
           <div class="form">
             <form class="login-form" action="${path }/member/login" method="post">
-              <input type="text" placeholder="userid" name="mid" id="mid" />
-              <input type="password" placeholder="password" name="mpw" id="mpw" />
+              <input type="text" placeholder="userid" name="mid" id="mid" required />
+              <input type="password" placeholder="password" name="mpw" id="mpw" required />
               <button type="submit">login</button>
               <p class="message">아이디가 없으십니까? <a href="./agreement.html">회원가입</a></p>
             </form>

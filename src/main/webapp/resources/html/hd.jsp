@@ -21,10 +21,11 @@ request.setAttribute("sid", session.getAttribute("sid"));
             <li><a href="${path}/member/loginForm">로그인</a></li>
             </c:if>
             <c:if test="${sid!=null }">
-            <li><a href="${path}/member/loginForm">로그아웃</a></li>
-            <li><a href="${path}/member/loginForm">${sid }님ㅎㅇ</a></li>
+            <li><a href="${path}/member/logout">로그아웃</a></li>
+            <li><a href="${path}/member/updateForm?mid=${sid }">${sid }님 변경</a></li>
             </c:if>
             <li><a href="${path}/board/list">글목록보기</a></li>
+            <li><a href="${path}/member/memberlist">회원목록보기</a></li>
         </ul>
     </div>
     </div>
