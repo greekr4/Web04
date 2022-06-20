@@ -149,30 +149,12 @@
                 <div class="board_list">
                     <table>
                         <tbody>
+                        <c:forEach items="${list }" var="DTO" begin="0" end="5">
                             <tr>
-                                <td>시흥 은계 색소치료 피부…</td>
-                                <td>2022-05-16</td>
+                                <td width="440px;">${DTO.tit }</td>
+                                <td><fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/></td>
                             </tr>
-                            <tr>
-                                <td>은계피부과 연세디에이지의…</td>
-                                <td>2022-05-02</td>
-                            </tr>
-                            <tr>
-                                <td>시흥 은계 색소치료 피부…</td>
-                                <td>2022-04-20</td>
-                            </tr>
-                            <tr>
-                                <td>시흥 은계 색소치료 피부…</td>
-                                <td>2022-05-16</td>
-                            </tr>
-                            <tr>
-                                <td>시흥 은계 색소치료 피부…</td>
-                                <td>2022-05-16</td>
-                            </tr>
-                            <tr>
-                                <td>시흥 은계 색소치료 피부…</td>
-                                <td>2022-05-16</td>
-                            </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -186,30 +168,12 @@
                 <div class="board_list">
                     <table>
                         <tbody>
+                         <c:forEach items="${list }" var="DTO" begin="0" end="5">
                             <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
+                                <td width="440px;">${DTO.tit }</td>
+                                <td><fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/></td>
                             </tr>
-                            <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
-                            </tr>
-                            <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
-                            </tr>
-                            <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
-                            </tr>
-                            <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
-                            </tr>
-                            <tr>
-                                <td>얼굴 동안(童顏) 만들어…</td>
-                                <td>2022-03-29</td>
-                            </tr>
+                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -221,15 +185,15 @@
             <div class="layout">
                 <div class="info">
                     <h2>Contact Us</h2>
-                    <p class="txt">경기도 시흥시 은계번영길 9, 4F 409~411 (은행동 골드웨이) 연세디에이지의원</p>
+                    <p class="txt">경기도 파주시 문산읍 방촌로 1675-20 (당동리 905) 무척조은병원</p>
                     <dl class="dl_style1">
-                        <dt><i class="icon"><img src="/img/info_icon01.png" alt=""></i>전화</dt>
-                        <dd>031.318.1013</dd><br>
-                        <dt><i class="icon"><img src="/img/info_icon02.png" alt=""></i>이메일</dt>
-                        <dd>faceartist@daum.net</dd><br>
-                        <dt><i class="icon"><img src="/img/info_icon03.png" alt=""></i>카카오톡</dt>
-                        <dd>연세디에이지의원</dd><br>
-                        <dt><i class="icon"><img src="/img/info_icon04.png" alt=""></i>진료시간</dt>
+                        <dt><i class="icon"><img src="${path }/resources/img/info_icon01.png" alt=""></i>전화</dt>
+                        <dd>010-4191-1611</dd><br>
+                        <dt><i class="icon"><img src="${path }/resources/img/info_icon02.png" alt=""></i>이메일</dt>
+                        <dd>greekr4@naver.com</dd><br>
+                        <dt><i class="icon"><img src="${path }/resources/img/info_icon03.png" alt=""></i>카카오톡</dt>
+                        <dd>무척조은병원</dd><br>
+                        <dt><i class="icon"><img src="${path }/resources/img/info_icon04.png" alt=""></i>진료시간</dt>
                         <dd>
                             <p><span>평&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일</span>AM 10:00 ~ PM 07:00 <em
                                     class="p_color1">(수요일 휴진)</em></p>
@@ -241,19 +205,24 @@
                 </div>
                 <div class="location" style="height: 450px;">
 
-                    <div id="daumRoughmapContainer1619019048980"
-                        class="map-wrap root_daum_roughmap root_daum_roughmap_landing"></div>
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1651298641677" class="root_daum_roughmap root_daum_roughmap_landing"></div>
 
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
-                    <script charset="UTF-8" class="daum_roughmap_loader_script"
-                        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
-
-                    <script charset="UTF-8">
-                        new daum.roughmap.Lander({
-                            "timestamp": "1619019048980",
-                            "key": "25gjh"
-                        }).render();
-                    </script>
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1651298641677",
+		"key" : "2a2gu",
+		"mapWidth" : "600",
+		"mapHeight" : "380"
+	}).render();
+</script>
                 </div>
             </div>
         </div>

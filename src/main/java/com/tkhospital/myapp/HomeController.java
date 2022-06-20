@@ -30,12 +30,9 @@ import com.tkhospital.service.TestService;
 @Controller
 public class HomeController {
 	
-	
+
 	@Inject
-	private TestService service;
-	
-	@Inject
-	private BoardService service2;
+	private BoardService service;
 
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
@@ -53,16 +50,8 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		List<BoardDTO> list2 = service2.boardList();
-		model.addAttribute("list2",list2);
-		
-		List<testDTO> list = service.selectTest(); 
-		String abc = service.Test2();
-		model.addAttribute("abc",abc);
+		List<BoardDTO> list = service.boardList();
 		model.addAttribute("list",list);
-		
-		
-		model.addAttribute("serverTime", formattedDate );
 		return "home";
 	}
 	
