@@ -127,7 +127,7 @@ ul {
 
 .main_fade {
     overflow: hidden;
-    height: 1000px;
+    height: 808px;
 }
 
 .fadebox {
@@ -147,7 +147,7 @@ ul {
 .fade_btn_box .prev_btn {
     z-index: 999;
     position: absolute;
-    top: calc(1000px/2);
+    top: calc(808px/2);
     left: 10px;
     cursor: pointer;
     font-size: 20px;
@@ -165,7 +165,7 @@ ul {
 .fade_btn_box2 {
     z-index: 998;
     position: absolute;
-    top: 1100px;
+    top: 900px;
     left: 910px;
     float: left;
 }
@@ -177,6 +177,7 @@ ul {
     height: 10px;
     cursor: pointer;
 }
+
 
 .main_banner {
     clear: both;
@@ -282,6 +283,8 @@ ul {
     color: #FFF;
     text-align: center;
     background-image: url("../img/main_bg01.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     margin-top: 100px;
 }
 
@@ -291,6 +294,9 @@ ul {
 }
 
 .main_about_imgbox {
+    padding-bottom: 30px;
+}
+.main_about_imgbox img{
     padding-bottom: 30px;
 }
 

@@ -42,8 +42,8 @@
             <div class="main_fade">
                 <div class="fadebox">
                     <div class="fade_btn_box">
-                        <span class="prev_btn">prev</span>
-                        <span class="next_btn">next</span>
+                        <span class="prev_btn"><img style="width: 50px;" src="${path }/resources/img/visual_arrow_left.png"></span>
+                        <span class="next_btn"><img style="width: 50px;" src="${path }/resources/img/visual_arrow_right.png"></span>
                     </div>
                     <div class="fade_btn_box2">
                         <span class="slider_btn"></span>
@@ -52,11 +52,9 @@
 
                     </div>
 
-                    <img src="http://www.urbanbrush.net/web/wp-content/uploads/edd/2020/02/urbanbrush-20200227023608426223.jpg"
-                        alt="이미지1" class="main_img">
-                    <img src="http://blog.jinbo.net/attach/615/200937431.jpg" alt="이미지2" class="main_img">
-                    <img src="https://www.onlineimagetool.com/resources/static/1.0.0/images/bg/split-screen.jpg"
-                        alt="이미지3" class="main_img">
+                    <img src="${path }/resources/img/visual01.jpg" alt="이미지1" class="main_img">
+                    <img src="${path }/resources/img/visual02.jpg" alt="이미지2" class="main_img">
+                    <img src="${path }/resources/img/visual03.jpg" alt="이미지3" class="main_img">
                 </div>
 
             </div>
@@ -77,46 +75,46 @@
         <div class="sub_banner_view">
             <div class="sub_banner">
                 <div class="sub_item">
-                    <h1>쁘띠성형</h1>
-                    <p class="sub_txt1">Botox</p>
-                    <p class="sub_txt2">잔주름, 사각턱, 종아리, 다한증까지 보톡스로 해결하세요</p>
+                    <h1>팔꿈치질환</h1>
+                    <p class="sub_txt1">JOINT</p>
+                    <p class="sub_txt2">손목터널증후군 & 테니스/골프엘보 & 방아쇠수지증후군</p>
                     <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide01.jpg" alt=""></div>
                 </div>
                 <div class="sub_item">
-                    <h1>리프팅 레이저</h1>
-                    <p class="sub_txt1">RF</p>
+                    <h1>무릎질환</h1>
+                    <p class="sub_txt1">JOINT</p>
                     <p class="sub_txt2">콜라겐&세포 리빌더<br>RF Lifting</p>
                     <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide02.jpg" alt=""></div>
                 </div>
                 <div class="sub_item">
-                    <h1>안티에이징</h1>
-                    <p class="sub_txt1">ANTI-AGING</p>
+                    <h1>어깨질환</h1>
+                    <p class="sub_txt1">JOINT</p>
                     <p class="sub_txt2">내몸에 맞는 1:1 맞춤<br>안티에이징주사</p>
+                    <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide03.jpg" alt=""></div>
+                </div>
+                <div class="sub_item">
+                    <h1>척추관협착증</h1>
+                    <p class="sub_txt1">SPINE</p>
+                    <p class="sub_txt2">코,이마,볼,무턱 입체적인 얼굴 완성<br>Filler</p>
                     <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide04.jpg" alt=""></div>
                 </div>
                 <div class="sub_item">
-                    <h1>쁘띠성형</h1>
-                    <p class="sub_txt1">Filler</p>
-                    <p class="sub_txt2">코,이마,볼,무턱 입체적인 얼굴 완성<br>Filler</p>
+                    <h1>허리디스크</h1>
+                    <p class="sub_txt1">SPINE</p>
+                    <p class="sub_txt2">리프팅과 피부개선을 동시에<br> HIFU Lifting</p>
                     <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide05.jpg" alt=""></div>
                 </div>
                 <div class="sub_item">
-                    <h1>리프팅 레이저</h1>
-                    <p class="sub_txt1">HIFU</p>
-                    <p class="sub_txt2">리프팅과 피부개선을 동시에<br> HIFU Lifting</p>
+                    <h1>목디스크</h1>
+                    <p class="sub_txt1">SPINE</p>
+                    <p class="sub_txt2">노화방지와 탄력을 동시에!<br>ANTI-AGING</p>
                     <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide06.jpg" alt=""></div>
                 </div>
                 <div class="sub_item">
-                    <h1>안티에이징</h1>
-                    <p class="sub_txt1">ANTI-AGING</p>
-                    <p class="sub_txt2">노화방지와 탄력을 동시에!<br>ANTI-AGING</p>
-                    <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide07.jpg" alt=""></div>
-                </div>
-                <div class="sub_item">
-                    <h1>실리프팅</h1>
-                    <p class="sub_txt1">Thread lifting</p>
+                    <h1>도수재활치료</h1>
+                    <p class="sub_txt1">REHABILITATION</p>
                     <p class="sub_txt2">특허받은 고정실로 매끈한 얼굴라인을 만들어드립니다.</p>
-                    <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide03.jpg" alt=""></div>
+                    <div class="sub_imgbox"> <img src="${path}/resources/img/multi_slide07.jpg" alt=""></div>
                 </div>
 
 
@@ -126,10 +124,10 @@
 
         <div class="main_about">
             <div class="main_about_titbox">
-                <h3>아름다운 변화의 시작! 연세디에이지</h1>
-                    <h1><span class="color1">연구</span>하고 노력하는 <span class="color1">윤효근 원장</span></h1>
+                <h3>무척조은병원</h1>
+                    <h1><span class="color1">연구</span>하고 노력하는 <span class="color1">김태균 원장</span></h1>
                     <h2><span class="color2">10년 이상의 진료 노하우</span>를 바탕으로 <span class="color2">안전</span>하고<br>
-                        건강한 피부를 <span class="color2">책임</span>지겠습니다.</h2>
+                        건강한 신체를 <span class="color2">책임</span>지겠습니다.</h2>
             </div>
             <div class="main_about_imgbox">
                 <img src="${path}/resources/img/main_about.png" alt="">
@@ -273,11 +271,11 @@
             var subpos = 0;
 
 
-            $(".sub_prev_btn").click(function () {
+            $(".sub_next_btn").click(function () {
                 if (subpos < 3) sub_right();
             });
 
-            $(".sub_next_btn").click(function () {
+            $(".sub_prev_btn").click(function () {
                 if (subpos > 0) sub_left();
             });
 

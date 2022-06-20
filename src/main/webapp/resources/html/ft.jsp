@@ -18,30 +18,26 @@
             <div>
                 <span>
                     <strong>주소 : </strong>
-                    "~~~~~~~""
+                    경기도 파주시 문산읍 방촌로 1675-20 (당동리 905) 무척조은병원
                 </span>
                 <span>
                     <strong>E-mail : </strong>
-                    "~~~~~~~~"
+                    greekr4@naver.com
                 </span>
                 <br>
                 <span>
                     <strong>사업자등록번호 : </strong>
-                    "~~~~~~~~~"
+                    111-11-11111
                 </span>
                 <span>
                     <strong>대표원장 : </strong>
-                    "~~~~~~~~~"
-                </span>
-                <span>
-                    <strong>의료기관명칭 : </strong>
-                    "~~~~~~~~~~"
+                   	 김태균
                 </span>
                 <span>
                     <strong>전화번호 : </strong>
-                    "~~~~~~~~~~"
+                    01041911611
                 </span>
-                <p>COPYRIGHT</p>
+                <p>COPYRIGHT 2022 MOOCHEOKJOEN. ALL RIGHTS RESERVED.</p>
             </div>
             <button type="button" id="top_btn" style="border: 0; cursor: pointer;">
                 <img src="${path }/resources/img/gotop.jpg" alt="버튼">

@@ -11,7 +11,7 @@ request.setAttribute("sid", session.getAttribute("sid"));
 
 <div class="header_wrap">
     <div class="header_top">
-        <h1>연세디에이지는 환자중심의 진료환경을 지향합니다.</h1>
+        <h1>무척조은병원은 환자중심의 진료환경을 지향합니다.</h1>
     </div>
     <div class="util_wrap">
     <div class="util_menu">
