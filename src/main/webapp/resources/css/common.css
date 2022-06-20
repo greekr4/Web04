@@ -66,6 +66,7 @@ ul {
     width: 1440px;
     margin: 0 auto;
     clear: both;
+    height: 65px;
 }
 
 .header_bottom .logo {
@@ -82,9 +83,10 @@ ul {
 .header_bottom ul {
     float: left;
     width: 120px;
-    line-height: 2em;
+    line-height: 65px;
     margin-left: 50px;
     font-size: 20px;
+    height: 65px;
 }
 
 .header_bottom ul:hover .submenu {
@@ -156,7 +158,7 @@ ul {
 .fade_btn_box .next_btn {
     z-index: 999;
     position: absolute;
-    top: calc(1000px/2);
+    top: calc(808px/2);
     left: 1850px;
     cursor: pointer;
     font-size: 20px;
