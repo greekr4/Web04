@@ -51,7 +51,8 @@ response.setCharacterEncoding("utf-8");
         }
 
         .img_box {
-            margin-left: 40px;
+            width: 100%;
+            overflow: hidden;
         }
 
         .grid_box .txt_box {
@@ -154,6 +155,52 @@ response.setCharacterEncoding("utf-8");
         .color_tit{
         color:#777;
         }
+        
+        .heal_wrap{
+        clear: both;
+        background-color: #1c2638;
+        margin: 50px 0;
+        min-height: 1000px;
+        }
+        .heal_tit_box{
+        width: 1400px;
+        margin: 0 auto;
+        font-size: 48px;
+        padding-top: 20px;
+        color: #fff;
+        }
+        .heal_menu_box{
+        width: 1400px;
+        margin: 0 auto;
+        }
+        .heal_menu_btn{
+        color:#fff;
+        float: left;
+        margin:0 1px;
+       /*  background-color: #347eb5; */
+        border: 1px solid #347eb5;
+        padding: 20px;
+        font-size: 24px;
+        width: 278px;
+    	text-align: center;
+    	transition:0.5s;
+    	cursor: pointer;
+        }
+        .heal_menu_btn:hover{
+        background-color: #347eb5;
+        }
+        .heal_img_box{
+        clear: both;
+        width:1400px;
+        margin: 120px auto;
+        transition:0.5s;
+        }
+        .heal_img_box{
+        display: none;
+        }
+        .heal_item1{
+        display: block;
+        }
     </style>
 </head>
 <body>
@@ -166,42 +213,85 @@ response.setCharacterEncoding("utf-8");
     </header>
       <div id="ct">
         <div class="ct_wrap">
+    
                 <p class="page_tit">Hospital introduction</p>
-                <div class="tit_box">
-                    <div class="grid_wrap">
-                        <div class="grid_box">
-                            <div class="txt_box">
-                                <h2>고객만족, 고객중심 <br><span class="color_blue">무척조은병원</span></h2>
-                                <p>
-                                    <strong>사소한 부분이라도 세심하게 주의를 기울여 높은 만족도를 드리겠습니다.</strong><br><br>
-                                    무척조은병원은 고객과 하나 되는 환자 중심의 진료를 제공합니다. <br>
-                                    대한민국 최고의 <span class="color_blue">척추, 관절, 도수재활센터</span>로써 끊임없이 연구하며 고객 한 분 한 분을
-                                    위해 노력을 기울이고 있습니다.<br><br>
-
-                                    무척조은병원에 오시면 그동안 잃어버렸던 미소와 만족을 되찾으실 수 있습니다. 동서고금, 나이를 막론하고 건강하고 아름다운 신체를 갖는 것은 모든
-                                    이들의 소망입니다. 하지만 정보의 홍수 속에서 믿을 수 있는 시술이나 병원을 찾기란 쉽지 않은 일입니다.<br><br>
-
-                                    무척조은병원은 믿을 수 있는 <span class="color_blue">전문의의 정밀한 진단과 처방, 10년 이상의 풍부한 경험과 노하우가
-                                        더해져 만족스러운 결과</span>를 이끌어냅니다. 여러분이 꿈꾸는 건강하고 아름다운 신체를 만들어 드리겠습니다.
-                                </p>
-                                <p>
-                                    <br>
-                                    <strong>[열정]</strong> <span class="color_blue">기본과 원칙을 중시</span>하고, 정직하고 자연스러운 치료를
-                                    위해 끊임없이 연구하고 배우겠습니다. <br><br>
-                                    <strong>[신뢰] </strong> 내원하는 고객 한 분 한 분을 가족같이 맞이하고, 고객의 불편함에 귀를 기울여 언제나 즐거운 마음으로 편안하게
-                                    찾을 수 있는 무척조은병원이 되겠습니다.<br><br>
-                                    <strong>[안전] </strong>고객의 안전을 최우선으로 두어 <span class="color_blue">1:1 맞춤 처방, 빠른
-                                        회복</span>을 지향합니다.
-                                </p>
-                            </div>
-                            <div class="img_box">
-                                <img src="${path}/resources/img/about01.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
+                <div class="img_box">
+                   <img src="${path}/resources/img/sub2_main.jpg" alt="">
+                </div>
+                <div class="heal_wrap">
+                	<div class="heal_tit_box">
+                		<h2>치료법</h2>
+                	</div>
+                	<div class="heal_menu_box">
+                		<ul class="heal_menu">
+                			<li class="heal_menu_btn">도수치료</li>
+                			<li class="heal_menu_btn">운동치료</li>
+                			<li class="heal_menu_btn">체외충격파</li>
+                			<li class="heal_menu_btn">프롤로치료</li>
+                			<li class="heal_menu_btn">관절내시경</li>
+                		</ul>
+                	</div>
+                	<div class="heal_img_box heal_item1">
+                	<img alt="" src="${path}/resources/img/mn02_01_1_treat01.jpg">
+                	</div>
+                	<div class="heal_img_box heal_item2">
+                	<img alt="" src="${path}/resources/img/mn02_01_1_treat02.jpg">
+                	</div>
+                	<div class="heal_img_box heal_item3">
+                	<img alt="" src="${path}/resources/img/mn02_01_1_treat03.jpg">
+                	</div>
+                	<div class="heal_img_box heal_item4">
+                	<img alt="" src="${path}/resources/img/mn02_01_1_treat04.jpg">
+                	</div>
+                	<div class="heal_img_box heal_item5">
+                	<img alt="" src="${path}/resources/img/mn02_02_1_treat05.jpg">
+                	</div>                	                	                	
                 </div>
           </div>
     </div> <!-- #ct 끝 -->
+    <script type="text/javascript">
+    $(document).ready(function () {
+    	$('.heal_menu_btn').eq(0).css("background-color","#347eb5");
+    	
+     	$('.heal_menu_btn').eq(0).click(function(){
+    		$('.heal_menu_btn').css("background-color","");
+    		$('.heal_menu_btn').eq(0).css("background-color","#347eb5");
+    		$('.heal_img_box').css("display","none");
+    		$('.heal_img_box').eq(0).css("display","block");
+    	});
+    	
+    	$('.heal_menu_btn').eq(1).click(function(){
+    		$('.heal_menu_btn').css("background-color","");
+    		$('.heal_menu_btn').eq(1).css("background-color","#347eb5");
+    		$('.heal_img_box').css("display","none");
+    		$('.heal_img_box').eq(1).css("display","block");
+    	});
+
+    	$('.heal_menu_btn').eq(2).click(function(){
+    		$('.heal_menu_btn').css("background-color","");
+    		$('.heal_menu_btn').eq(2).css("background-color","#347eb5");
+    		$('.heal_img_box').css("display","none");
+    		$('.heal_img_box').eq(2).css("display","block");
+    	});
+    	
+    	$('.heal_menu_btn').eq(3).click(function(){
+    		$('.heal_menu_btn').css("background-color","");
+    		$('.heal_menu_btn').eq(3).css("background-color","#347eb5");
+    		$('.heal_img_box').css("display","none");
+    		$('.heal_img_box').eq(3).css("display","block");
+    	});
+    	
+    	$('.heal_menu_btn').eq(4).click(function(){
+    		$('.heal_menu_btn').css("background-color","");
+    		$('.heal_menu_btn').eq(4).css("background-color","#347eb5");
+    		$('.heal_img_box').css("display","none");
+    		$('.heal_img_box').eq(4).css("display","block");
+    	});
+    	
+
+    	
+    });
+    </script>
         <footer id="footer">
 	<%@ include file="/resources/html/ft.jsp" %>
     </footer>
