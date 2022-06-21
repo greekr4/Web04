@@ -92,10 +92,33 @@ public class HomeController {
 		return "redirect:/doD";
 	}
 	
-//	@RequestMapping(value = "/board/list",method = RequestMethod.GET)
-//	public String boardList(Model model) throws Exception {
-//		List<BoardDTO> list2 = service2.boardList();
-//		model.addAttribute("list2",list2);
-//		return "board/list";
-//	}
+	@RequestMapping("sub1")
+	public String sub1(Model model) {
+		return "sub1";
+	}
+	@RequestMapping("sub2")
+	public String sub2(Model model) {
+		return "sub2";
+	}
+	@RequestMapping("sub3")
+	public String sub3(Model model) {
+		return "sub3";
+	}
+	@RequestMapping("sub4")
+	public String sub4(Model model) {
+		return "sub4";
+	}
+	@RequestMapping("sub5")
+	public String sub5(Model model) {
+		return "sub5";
+	}
+	@RequestMapping("sub6")
+	public String sub6(Model model) {
+		return "sub6";
+	}
+	@RequestMapping("sub7")
+	public String sub7(Model model) {
+		return "sub7";
+	}
+	
 }

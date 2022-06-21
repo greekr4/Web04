@@ -1,9 +1,28 @@
 @charset "utf-8";
 
+
+   @font-face {
+    font-family: 'GimpoGothicBold00';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/GimpoGothicBold00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: GimpoGothicBold00;
+}
+
+#footer *{
+	font-family: monospace;
+}
+#footer a{
+	font-family: GimpoGothicBold00;
 }
 
 a {
@@ -29,7 +48,7 @@ ul {
 .header_top h1 {
     color: #fff;
     text-align: center;
-    line-height: 60px;
+    line-height: 75px;
     font-weight: 500;
     margin: 0;
 
@@ -44,6 +63,10 @@ ul {
 .util_menu li {
     float: right;
     margin: 0 10px;
+}
+
+.util_menu li a{
+	line-height: 33px;
 }
 
 .util_menu li::before {
@@ -83,7 +106,7 @@ ul {
 .header_bottom ul {
     float: left;
     width: 120px;
-    line-height: 65px;
+    line-height: 75px;
     margin-left: 50px;
     font-size: 20px;
     height: 65px;
@@ -101,7 +124,7 @@ ul {
 .submenu {
     z-index: 999;
     position: absolute;
-    left: -75px;
+    left: -65px;
     width: 200px;
     border: 1px solid #000;
     border-top: 0;
@@ -112,6 +135,7 @@ ul {
 
 .submenu_wrap {
     position: relative;
+    top:-10px;
 }
 
 /* 헤더 끝 */
@@ -214,7 +238,15 @@ ul {
     text-align: center;
     border: 1px solid #888;
     margin: 10px;
+	
+}
 
+.sub_item:hover{
+	cursor: pointer;
+	border: 1px solid red;
+	transition-duration:0.5s;
+	transform:scale(1.01);
+	
 }
 
 .sub_item h1 {
@@ -226,6 +258,9 @@ ul {
     width: 80%;
     font-weight: 400;
     margin-top: 50px;
+    line-height: 60px;
+    height: 50px;
+    margin-top: 30px;
 }
 
 .sub_item .sub_txt1 {
@@ -358,8 +393,14 @@ ul {
     border: 1px solid #425c96;
     width: 30px;
     top: -5px;
-    left: 390px;
+    left: 375px;
+    font-family: none;
 }
+.board_box a:hover {
+    color: red;
+    border: 1px solid red;
+}
+
 
 .news_box a {
     left: 462px;
@@ -489,11 +530,12 @@ dd::after {
 
 .footer_bottom {
     float: left;
-    padding-top: 30px;
+    padding-top: 10px;
+    padding-right:70px;
 }
 
 .footer_info {
-    padding-top: 30px;
+    padding-top: 20px;
     margin-left: 200px;
 }
 

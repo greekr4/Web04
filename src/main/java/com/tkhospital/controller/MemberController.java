@@ -36,6 +36,8 @@ public class MemberController {
 	@Inject
 	BCryptPasswordEncoder pwdEncoder;
 	
+	@Inject
+	HttpServletResponse response;
 
 	ScriptUtils ScriptUtils = new ScriptUtils();
 	
@@ -115,6 +117,7 @@ public class MemberController {
 		DTO.setMpw(pwdEncoder.encode(DTO.getMpw()));
 		DTO.setMaddress(addr3);
 		service.memberCreate(DTO);
+		ScriptUtils.alertAndMovePage(response, "가입완료!", "./loginForm");
 	}
 	
 	@RequestMapping("logout")
@@ -144,12 +147,18 @@ public class MemberController {
 		String addr2 = request.getParameter("maddress2");
 		String addr3 = addr1+" "+addr2;
 		DTO.setMpw(pwdEncoder.encode(DTO.getMpw()));
-		System.out.println("zzzz"+DTO.getMpw());
 		DTO.setMaddress(addr3);
 		service.memberUpdate(DTO);
 		return "redirect:../";
 	}
 	
+	@RequestMapping(value="delete",method = RequestMethod.GET)
+	public String delete(String mid) throws Exception{
+		service.memberDelete(mid);
+		ScriptUtils.alertAndBackPage(response, "삭제완료");
+		return "";
+		
+	}
 	
 	
 	

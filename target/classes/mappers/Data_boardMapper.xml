@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.tkhospital.Data_boardMapper">
+	<!-- 리스트 -->
+	<select id="boardList" resultType="com.tkhospital.dto.Data_BoardDTO">
+		select * from data_board order by no desc
+	</select>
+	
+	<!-- 자세히보기 -->
+	<select id="boardRead" resultType="com.tkhospital.dto.Data_BoardDTO">
+		select * from data_board where no = #{no }
+	</select>
+	<!-- 글쓰기 -->
+ 	<insert id="boardWrite">
+		insert into data_board values(
+					(select nvl(max(no),0)+1 from data_board),
+					#{tit },
+					#{con },
+					#{writer },
+					sysdate,
+					0,
+					0,
+					#{lock_post },
+					#{dfile_name},
+					#{dposter}
+					)
+	</insert>
+	<!-- 글수정 -->
+	<update id="boardUpdate">
+		update data_board set 
+					tit= #{tit },
+					con= #{con },
+					regdate=sysdate,
+					lock_post= #{lock_post },
+					dfile_name = #{dfile_name},
+					dposter = #{dposter}
+					where no = #{no }
+	</update>
+	<!-- 글삭제 -->
+	<delete id="boardDelete">
+	delete from data_board where no= #{no }
+	</delete>
+
+	 </mapper>

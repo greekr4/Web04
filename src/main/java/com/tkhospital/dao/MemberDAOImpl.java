@@ -42,4 +42,10 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update(namespace+".memberUpdate",DTO);
 	}
 
+	@Override
+	public void memberDelete(String mid) throws Exception {
+		sqlSession.delete(namespace+".memberDelete",mid);
+		
+	}
+
 }

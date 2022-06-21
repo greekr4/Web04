@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page session="false" %>
+
 <%response.setCharacterEncoding("utf-8"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="ko">
@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="${path}/resources/css/normalize.css">
     <link rel="stylesheet" href="${path}/resources/css/common.css">
 	<title>HomeZZ</title>
+	<style>
+	 table * {
+	 font-family: monospace;
+	 }
+	</style>
 </head>
 <body>
     <header id="header">
@@ -22,7 +27,6 @@
 <div id="ct">
 <div style="width: 1600px; margin: 150px auto;">
 <div style="margin: 30px 0;">
-<a href="./addForm" style="font-size: 20px; color:pink; border: 2px solid pink;">추가</a>
 </div>
 <table style="width: 100%; margin: 0 auto;">
 <tr style=" line-height: 3em;">
@@ -35,6 +39,7 @@
 <th>닉네임</th>
 <th>가입일</th>
 <th>최종접속일</th>
+<th></th>
 
 
 </tr>
@@ -50,6 +55,7 @@
 <td>${DTO.mnick }</td>
 <td><fmt:formatDate value="${DTO.mjday }" pattern="YYYY-MM-dd"/></td>
 <td><fmt:formatDate value="${DTO.mlatest }" pattern="YYYY-MM-dd"/></td>
+<td><a href="delete?mid=${DTO.mid }" style="color:#777">삭제</a></td>
 
 
 </tr>

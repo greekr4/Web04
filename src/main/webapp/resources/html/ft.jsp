@@ -35,7 +35,7 @@
                 </span>
                 <span>
                     <strong>전화번호 : </strong>
-                    01041911611
+                    010-4191-1611
                 </span>
                 <p>COPYRIGHT 2022 MOOCHEOKJOEN. ALL RIGHTS RESERVED.</p>
             </div>
@@ -47,8 +47,8 @@
     </div>
     <script>
 
-                $('#top_btn').click(function(){
-                $('html').scrollTop(0);
-                });
+    	            $('#top_btn').click(function(){
+    	            $('html,body').animate({scrollTop:0},500);
+    	            });
     </script>
 

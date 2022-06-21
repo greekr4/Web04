@@ -76,14 +76,12 @@ public class BoardController {
 	@RequestMapping(value = "Write",method = RequestMethod.POST)
 	public String boardWrite(Model model,BoardDTO DTO,HttpServletResponse response) throws Exception {
 		
-		
-		System.out.println("결과 : " + service2.boardWrite(DTO));
-		
+		service2.boardWrite(DTO);
 		
 		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./list");
 //		List<BoardDTO> list = service2.boardList();
 //		model.addAttribute("list2",list);
-		return ""; 
+		return "redirect:.board/list"; 
 	}
 	
 	@RequestMapping(value = "EditForm",method = RequestMethod.GET)

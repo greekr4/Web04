@@ -10,4 +10,5 @@ public interface MemberDAO {
 	public void memberCreate(MemberDTO DTO) throws Exception;
 	public int memberIDCK(String mid) throws Exception;
 	public void memberUpdate(MemberDTO DTO) throws Exception;
+	public void memberDelete(String mid) throws Exception;
 }

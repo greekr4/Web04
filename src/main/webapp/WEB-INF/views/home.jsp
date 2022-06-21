@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page session="false" %>
 <%response.setCharacterEncoding("utf-8"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="ko">
@@ -195,11 +194,11 @@
                         <dd>무척조은병원</dd><br>
                         <dt><i class="icon"><img src="${path }/resources/img/info_icon04.png" alt=""></i>진료시간</dt>
                         <dd>
-                            <p><span>평&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일</span>AM 10:00 ~ PM 07:00 <em
+                            <p><span style="margin-right:10px;">평&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일</span>AM 10:00 ~ PM 07:00 <em
                                     class="p_color1">(수요일 휴진)</em></p>
-                            <p><span>토&nbsp;&nbsp;요&nbsp;&nbsp;일</span><em class="p_color2">AM 10:00 ~ PM 03:00(점심시간 없이
+                            <p><span style="margin-right:10px;">토&nbsp;&nbsp;요&nbsp;&nbsp;일</span><em class="p_color2">AM 10:00 ~ PM 03:00(점심시간 없이
                                     진료)</em></p>
-                            <p><span>점심 평일</span>PM 01:00 ~ PM 02:00</p>
+                            <p><span style="margin-right:10px;">점심 평일</span>PM 01:00 ~ PM 02:00</p>
                         </dd>
                     </dl>
                 </div>
@@ -237,6 +236,8 @@
         $(document).ready(function () {
 /*             $("#header").load("./imclude/hd.html");
             $("#footer").load("./imclude/ft.html"); */
+            
+
             var subpos = 0;
 
 
@@ -434,5 +435,7 @@
 
 
     </script>
+    
+
 </body>
 </html>

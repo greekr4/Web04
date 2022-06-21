@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<%@ page session="false" %>
+
 <%response.setCharacterEncoding("utf-8"); %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html lang="ko">
@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="${path}/resources/css/normalize.css">
     <link rel="stylesheet" href="${path}/resources/css/common.css">
 	<title>HomeZZ</title>
+	<style>
+	input, textarea{
+	border: 1px solid #777;
+    font-size: 0.9em;
+    line-height: 2em;
+    padding-left: 1em;
+    padding-top: 5px;
+	}
+	
+	</style>
 </head>
 <body>
     <header id="header">

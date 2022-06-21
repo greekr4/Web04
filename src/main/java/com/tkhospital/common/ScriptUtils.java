@@ -23,7 +23,7 @@ public class ScriptUtils {
 	    	// 사용법 : ScriptAlertUtils.alertAndBackPage("아이디가 중복", "/login.do");
 	        init(response);
 	        PrintWriter out = response.getWriter();
-	        out.println("<script>alert('" + alertText + "'); history.go(-1);</script>");
+	        out.println("<script>alert('" + alertText + "'); location.href = document.referrer;</script>");
 	        out.flush();
 	    }
 	 

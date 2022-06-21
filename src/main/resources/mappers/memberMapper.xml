@@ -49,4 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 					where mid=#{mid}
 	
 	</update>
+	<delete id="memberDelete">
+	delete from shop_member where mid=#{mid}
+	</delete>
 	 </mapper>

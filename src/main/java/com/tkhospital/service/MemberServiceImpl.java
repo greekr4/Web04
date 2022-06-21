@@ -1,6 +1,5 @@
 package com.tkhospital.service;
 
-import java.util.Base64;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -48,6 +47,12 @@ public class MemberServiceImpl implements MemberService {
 	public void memberUpdate(MemberDTO DTO) throws Exception {
 		dao.memberUpdate(DTO);
 		
+	}
+
+
+	@Override
+	public void memberDelete(String mid) throws Exception {
+		dao.memberDelete(mid);
 	}
 
 
