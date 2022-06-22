@@ -53,15 +53,42 @@ public class BoardController {
 	public String noticeList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList();
 		model.addAttribute("list",list);
-		return "board/notice"; //board/list.jsp
+		return "board/notice";
 	}
+	
+	@RequestMapping("free")
+	public String freeList(Model model,HttpServletResponse response) throws Exception {
+		List<BoardDTO> list = service2.boardList();
+		model.addAttribute("list",list);
+		return "board/free";
+	}
+	
+	@RequestMapping("news")
+	public String newsList(Model model,HttpServletResponse response) throws Exception {
+		List<BoardDTO> list = service2.boardList();
+		model.addAttribute("list",list);
+		return "board/news";
+	}
+	
+	
 	
 	@RequestMapping(value = "more",method = RequestMethod.GET)
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
 		BoardDTO DTO = service2.boardRead(no);
+		service2.boardRead_viewed(no);
 		model.addAttribute("DTO",DTO);
 		return "board/more";
 	}
+	
+	@RequestMapping(value = "thumbup",method = RequestMethod.GET)
+	public void thumbup(Model model,@RequestParam int no,HttpServletResponse response) throws Exception {
+
+		service2.boardThumbUp(no);
+		ScriptUtils.alertAndClose(response, "추천하셨습니다");
+
+
+	}
+	
 	
 	@RequestMapping(value = "del",method = RequestMethod.GET)
 	public String boardDelete(Model model,@RequestParam int no) throws Exception {

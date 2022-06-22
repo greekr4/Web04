@@ -47,8 +47,13 @@
  <%--
  ${path}/resources/upload/${DTO.dfile_name }
  --%>
-<input style="width: 90%;" type="text" name="dfile_name" id="dfile_name" class="dfile_name" value="${DTO.dfile_name }" >
+ <c:if test="${DTO.dfile_name eq null}">
+<input style="width: 100%;" type="text" name="dfile_name" id="dfile_name" class="dfile_name" value="파일이 없습니다." readonly >
+</c:if>
+<c:if test="${DTO.dfile_name ne null }">
+<input style="width: 90%;" type="text" name="dfile_name" id="dfile_name" class="dfile_name" value="${DTO.dfile_name }" readonly >
 <a href="${path}/resources/upload/${DTO.dfile_name }" download>다운로드</a>
+</c:if>
 </td>
 </tr>
 
@@ -74,20 +79,7 @@ ${DTO.con }
 <tr>
 <td>&nbsp;</td>
 <td colspan="5">
-<a href="${path }/board/EditForm?no=${DTO.no}"><button type="button" style="width: 100%; height: 50px">수정하러가기</button></a>
-</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td colspan="5">
-<a href="${path }/board/del?no=${DTO.no}"><button type="button" style="width: 100%; height: 50px">삭제</button></a>
-</td>
-</tr>
-
-<tr>
-<td>&nbsp;</td>
-<td colspan="5">
-<a href="${path }/board/list"><button type="button" style="width: 100%; height: 50px">목록</button></a>
+<a href="${path }/data_board/data_boardList"><button type="button" style="width: 100%; height: 50px">목록</button></a>
 </td>
 </tr>
 

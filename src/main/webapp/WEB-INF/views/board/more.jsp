@@ -38,9 +38,7 @@
 <th>작성자</th><td><input type="text" name="writer" placeholder="writer" style="width: 100%" value="${DTO.writer }" readonly></td>
 <th>Lock_post</th><td><input type="text" name="lock_post" placeholder="lock_post" style="width: 100%" value="${DTO.lock_post }" readonly></td>
 </tr>
-<tr>
-<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
-</tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
 <tr>
 <th>내용</th>
 <td colspan="5">
@@ -49,9 +47,13 @@ ${DTO.con }
 </textarea>
 </td>
 </tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
 <tr>
-<td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+<th>조회수</th> <td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.viewed }" readonly></td>
+<th>추천수</th><td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.thumb }" readonly></td>
+<td><input type="text" onclick="window.open('${path}/board/thumbup?no=${DTO.no }')" style="width: 20%; text-align: center; padding-left: 0;" value="추천" readonly></td>
 </tr>
+<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
 <tr>
 <td>&nbsp;</td>
 </tr>

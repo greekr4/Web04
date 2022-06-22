@@ -84,9 +84,9 @@
             <div class="submenu_wrap">
                 <div class="submenu">
                 <a href="${path }/board/notice"><li>공지사항</li></a>
-                <a href="${path }/sub6#page2"><li>뉴스</li></a>
+                <a href="${path }/board/news"><li>뉴스</li></a>
+                <a href="${path }/board/free"><li>자유게시판</li></a>
                 <a href="${path }/data_board/data_boardList"><li>파일게시판</li></a>
-                <a href="${path }/data_board/data_boardList"><li>자유게시판</li></a>
                 </div>
             </div>
         </ul>

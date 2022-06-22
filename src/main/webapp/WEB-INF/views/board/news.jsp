@@ -297,13 +297,13 @@ response.setCharacterEncoding("utf-8");
         <div class="page_warp">
  	         <div class="visual" style="background-image: url(${path}/resources/img/mn07_vs.jpg);">
                 <div class="tit_box">
-                    <h1>공지사항</h1>
+                    <h1>News</h1>
                 </div>
 			</div>
             <div class="board">
-                <p class="page_tit">공지사항</p>
+                <p class="page_tit">News</p>
                 <div class="txt_box">
-                    무척조은병원 공지사항 게시판 입니다.
+                    무척조은병원 News 입니다.
                 </div>
                 <div class="table_warp">
                     <table>

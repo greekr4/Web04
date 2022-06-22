@@ -25,6 +25,11 @@ public class BoardDAOImpl implements BoardDAO {
 	public BoardDTO boardRead(int no) throws Exception {
 		return sqlSession.selectOne(namespace+".boardRead",no);
 	}
+	
+	@Override
+	public void boardRead_viewed(int no) throws Exception {
+		sqlSession.update(namespace+".boardRead_viewer",no);
+	}
 
 	@Override
 	public int boardWrite(BoardDTO DTO) throws Exception {
@@ -40,5 +45,13 @@ public class BoardDAOImpl implements BoardDAO {
 	public void boardDelete(int no) throws Exception {
 		sqlSession.delete(namespace+".boardDelete",no);
 	}
+
+	@Override
+	public void boardThumbUp(int no) throws Exception {
+		sqlSession.update(namespace+".boardthumbUp",no);
+		
+	}
+
+
 
 }

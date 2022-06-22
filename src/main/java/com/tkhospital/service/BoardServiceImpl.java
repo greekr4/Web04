@@ -24,6 +24,11 @@ public class BoardServiceImpl implements BoardService {
 	public BoardDTO boardRead(int no) throws Exception {
 		return dao.boardRead(no);
 	}
+	
+	@Override
+	public void boardRead_viewed(int no) throws Exception {
+		dao.boardRead_viewed(no);
+	}
 
 	@Override
 	public int boardWrite(BoardDTO DTO) throws Exception {
@@ -39,5 +44,12 @@ public class BoardServiceImpl implements BoardService {
 	public void boardDelete(int no) throws Exception {
 		dao.boardDelete(no);
 	}
+
+	@Override
+	public void boardThumbUp(int no) throws Exception {
+		dao.boardThumbUp(no);
+	}
+
+
 
 }

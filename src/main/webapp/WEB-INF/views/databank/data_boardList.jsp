@@ -297,13 +297,13 @@ response.setCharacterEncoding("utf-8");
         <div class="page_warp">
  	         <div class="visual" style="background-image: url(${path}/resources/img/mn07_vs.jpg);">
                 <div class="tit_box">
-                    <h1>공지사항</h1>
+                    <h1>자료게시판</h1>
                 </div>
 			</div>
             <div class="board">
-                <p class="page_tit">공지사항</p>
+                <p class="page_tit">자료게시판</p>
                 <div class="txt_box">
-                    무척조은병원 공지사항 게시판 입니다.
+                    무척조은병원 자료 게시판입니다.
                 </div>
                 <div class="table_warp">
                     <table>
@@ -324,17 +324,7 @@ response.setCharacterEncoding("utf-8");
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="even">
-                                <td class="td_num2">2000</td>
-                                <td class="td_subject" style="padding-left:0px">
-                                    <div class="bo_tit">
-                                        <a href="">샘플입니다 </a>
-                                    </div>
-                                </td>
-                                <td class="td_name sv_use"><span class="sv_member">샘플</span></td>
-                                <td class="td_num">임다</td>
-                                <td class="td_datetime">03-29</td>
-                            </tr>
+                        
                             <c:forEach items="${list }" var="DTO">
                             
                             <tr class="even">

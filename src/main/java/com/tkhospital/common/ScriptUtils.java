@@ -34,4 +34,12 @@ public class ScriptUtils {
 	        out.println("<script>alert('" + alertText + "'); location.href='" + nextPage + "';</script> ");
 	        out.flush();
 	    }
+	    
+	    public static void alertAndClose(HttpServletResponse response, String alertText) throws IOException {
+	    	// 사용법 : ScriptAlertUtils.alert("아이디가 중복");
+	        init(response);
+	        PrintWriter out = response.getWriter();
+	        out.println("<script>alert('" + alertText + "');window.close();</script> ");
+	        out.flush();
+	    }
 }
