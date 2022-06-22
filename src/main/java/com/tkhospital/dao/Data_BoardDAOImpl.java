@@ -41,4 +41,16 @@ public class Data_BoardDAOImpl implements Data_BoardDAO {
 		sqlSession.delete(namespace+".boardDelete",no);
 	}
 
+	@Override
+	public void boardRead_viewed(int no) throws Exception {
+		sqlSession.update(namespace+".boardRead_viewer",no);
+		
+	}
+
+	@Override
+	public void boardThumbUp(int no) throws Exception {
+		sqlSession.update(namespace+".boardthumbUp",no);
+		
+	}
+
 }

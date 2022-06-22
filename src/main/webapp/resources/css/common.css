@@ -118,7 +118,10 @@ ul {
 
 .header_bottom ul li {
     font-size: 15px;
+}
 
+.header_bottom ul li:hover {
+    background-color: #dedede;
 }
 
 .submenu {

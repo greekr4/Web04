@@ -73,9 +73,18 @@ public class Data_BoardController {
 	
 	@RequestMapping(value = "more",method = RequestMethod.GET)
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
+		service.boardRead_viewed(no);
 		Data_BoardDTO DTO = service.boardRead(no);
 		model.addAttribute("DTO",DTO);
 		return "databank/data_boardMore";
+	}
+	
+	@RequestMapping(value = "thumbup",method = RequestMethod.GET)
+	public void thumbup(Model model,@RequestParam int no,HttpServletResponse response) throws Exception {
+
+		service.boardThumbUp(no);
+		ScriptUtils.alertAndClose(response, "추천하셨습니다");
+
 	}
 	
 	
@@ -89,10 +98,10 @@ public class Data_BoardController {
 	@RequestMapping(value = "insert",method = RequestMethod.POST)
 	public String boardWrite(Model model,Data_BoardDTO DTO,HttpServletResponse response) throws Exception {
 		service.boardWrite(DTO);
-		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./list");
+		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./data_boardList");
 //		List<BoardDTO> list = service2.boardList();
 //		model.addAttribute("list2",list);
-		return "redirect:.board/list"; 
+		return ""; 
 	}
 	
 	

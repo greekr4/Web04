@@ -39,7 +39,7 @@ public class ScriptUtils {
 	    	// 사용법 : ScriptAlertUtils.alert("아이디가 중복");
 	        init(response);
 	        PrintWriter out = response.getWriter();
-	        out.println("<script>alert('" + alertText + "');window.close();</script> ");
+	        out.println("<script>alert('" + alertText + "');opener.location.reload();window.close();</script> ");
 	        out.flush();
 	    }
 }

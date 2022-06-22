@@ -74,8 +74,8 @@ public class BoardController {
 	
 	@RequestMapping(value = "more",method = RequestMethod.GET)
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
-		BoardDTO DTO = service2.boardRead(no);
 		service2.boardRead_viewed(no);
+		BoardDTO DTO = service2.boardRead(no);
 		model.addAttribute("DTO",DTO);
 		return "board/more";
 	}
@@ -84,8 +84,8 @@ public class BoardController {
 	public void thumbup(Model model,@RequestParam int no,HttpServletResponse response) throws Exception {
 
 		service2.boardThumbUp(no);
-		ScriptUtils.alertAndClose(response, "추천하셨습니다");
 
+		ScriptUtils.alertAndClose(response, "추천하셨습니다");
 
 	}
 	

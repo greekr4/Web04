@@ -233,6 +233,7 @@
     </footer>
 
     <script>
+    
         $(document).ready(function () {
 /*             $("#header").load("./imclude/hd.html");
             $("#footer").load("./imclude/ft.html"); */

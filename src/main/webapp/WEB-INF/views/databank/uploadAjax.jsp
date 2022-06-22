@@ -11,8 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>업로드 Ajax화면</title>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="${path1 }/include/reset.css">
-<link rel="stylesheet" href="${path1 }/include/common.css">
+<link rel="stylesheet" href="${path }/include/reset.css">
+<link rel="stylesheet" href="${path }/include/common.css">
 <script>
 $(document).ready(function () {
 	$(".fileDrop").on("dragenter dragover", function(event){
@@ -46,7 +46,7 @@ $(document).ready(function () {
 					str = "<div>"
 						+ "<a href='${path }/data_board/displayFile.do?fileName=" + data + "'>"
 						+ getOriginalName(data) + "</a>"
-						+ "<span data-src='" + data + "'>X</span><br></div>";
+						+ "<span data-src='" + data + "'>X</span><br><a href='javascript:apply(\""+data+"\")'>추가</a></div>";
 				}
 				$(".uploadedList").append(str);	
 			
@@ -100,13 +100,13 @@ $(document).ready(function () {
 });
 </script>
 <style>
-.fileDrop{	width: 100%;	height: 200px;	border: 1px dotted blue; }
+.fileDrop{	width: 100%;	height: 150px;	border: 1px dotted blue; }
 span {	margin-left: 3px;	font-weight: bold; color: gray; }
 </style>
 </head>
 <body>
 <article id="con" class="content">
-      <h2 class="page_tit">Ajax File Upload</h2>
+      <h2 class="page_tit" style="text-align: center;">Drag!</h2>
       <form id="form" action="${path }/data_board/uploadAjax.do" method="post" enctype="multipart/form-data">
         <div class="box-body">
           <div class="form-group">
@@ -135,9 +135,7 @@ span {	margin-left: 3px;	font-weight: bold; color: gray; }
 			}
 			opener.document.databankUpload.dfilename.value=id;
 			opener.document.databankUpload.dposter.value=ext;
-			opener.document.getElementById("proData").src = id;
-			opener.document.getElementById("proData2").src = "${path }/data/"+ext+".png";
-			//opener.document.frm.imgck.value="yes";
+/* 			opener.document.getElementById("proData").src = "${path}/resources/upload"+id; */
 			window.close();
 		}
 		</script>

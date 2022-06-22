@@ -11,6 +11,9 @@ public interface Data_BoardService {
 	//글 상세보기
 	public Data_BoardDTO boardRead(int no) throws Exception;
 	
+	public void boardRead_viewed(int no) throws Exception;
+	public void boardThumbUp(int no) throws Exception;
+	
 	//글 쓰기
 	public int boardWrite(Data_BoardDTO DTO) throws Exception;
 	

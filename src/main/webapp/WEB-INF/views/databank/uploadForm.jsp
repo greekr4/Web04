@@ -62,8 +62,8 @@
 			}
 			opener.document.databankUpload.dfilename.value=id;
 			opener.document.databankUpload.dposter.value=ext;
-			opener.document.getElementById("proData").src = id;
-			opener.document.getElementById("proData2").src = "${path }/data/"+ext+".png";
+/* 			opener.document.getElementById("proData").src = id;
+			opener.document.getElementById("proData2").src = "${path }/data/"+ext+".png"; */
 			//opener.document.frm.imgck.value="yes";
 			window.close();
 		}

@@ -40,4 +40,16 @@ public class Data_BoardServiceImpl implements Data_BoardService {
 		dao.boardDelete(no);
 	}
 
+	@Override
+	public void boardRead_viewed(int no) throws Exception {
+		dao.boardRead_viewed(no);
+		
+	}
+
+	@Override
+	public void boardThumbUp(int no) throws Exception {
+		dao.boardThumbUp(no);
+		
+	}
+
 }

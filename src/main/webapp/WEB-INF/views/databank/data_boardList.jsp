@@ -306,6 +306,10 @@ response.setCharacterEncoding("utf-8");
                     무척조은병원 자료 게시판입니다.
                 </div>
                 <div class="table_warp">
+                <script type="text/javascript">
+                
+                </script>
+                <button onclick="location.href = '${path}/data_board/WriteForm'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
                     <table>
                         <colgroup>
                             <col style="width:10%;">

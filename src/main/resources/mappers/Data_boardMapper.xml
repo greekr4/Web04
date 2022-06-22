@@ -14,6 +14,15 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 	<select id="boardRead" resultType="com.tkhospital.dto.Data_BoardDTO">
 		select * from data_board where no = #{no }
 	</select>
+	
+	<update id="boardRead_viewer">
+		update data_board set viewed = viewed + 1 where no = #{no }
+	</update>
+	<update id="boardthumbUp">
+		update data_board set thumb = thumb + 1 where no = #{no }
+	</update>
+	
+	
 	<!-- 글쓰기 -->
  	<insert id="boardWrite">
 		insert into data_board values(
