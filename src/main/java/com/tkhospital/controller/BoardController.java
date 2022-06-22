@@ -44,12 +44,16 @@ public class BoardController {
 	
 	@RequestMapping("list")
 	public String boardList(Model model,HttpServletResponse response) throws Exception {
-		
-		//ScriptUtils.alert(response, "zz");
-		
 		List<BoardDTO> list = service2.boardList();
 		model.addAttribute("list2",list);
 		return "board/list"; //board/list.jsp
+	}
+	
+	@RequestMapping("notice")
+	public String noticeList(Model model,HttpServletResponse response) throws Exception {
+		List<BoardDTO> list = service2.boardList();
+		model.addAttribute("list",list);
+		return "board/notice"; //board/list.jsp
 	}
 	
 	@RequestMapping(value = "more",method = RequestMethod.GET)
@@ -75,9 +79,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "Write",method = RequestMethod.POST)
 	public String boardWrite(Model model,BoardDTO DTO,HttpServletResponse response) throws Exception {
-		
 		service2.boardWrite(DTO);
-		
 		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./list");
 //		List<BoardDTO> list = service2.boardList();
 //		model.addAttribute("list2",list);

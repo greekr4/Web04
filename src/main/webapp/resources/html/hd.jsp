@@ -13,7 +13,7 @@
     <div class="util_wrap">
     <div class="util_menu">
         <ul>
-            
+            <li><a href="${path}/data_board/WriteForm">테스트</a></li>
             <c:if test="${sid==null }">
             <li><a href="${path}/member/agreement">회원가입</a></li>
             <li><a href="${path}/member/loginForm">로그인</a></li>
@@ -31,7 +31,7 @@
     </div>
     <div class="header_bottom" >
         <div class="logo"><a href="${path}"><img src="${path }/resources/img/header_logo.png" alt="로고"></a></div>
-        <ul>
+        <ul style="margin-left: 150px;">
             <a href="${path }/sub1#page1">병원소개</a>
             <div class="submenu_wrap">
                 <div class="submenu">
@@ -42,7 +42,7 @@
             </div>
         </ul>
         <ul>
-            <a href="">관절센터</a>
+            <a href="${path }/sub2#page1">관절센터</a>
             <div class="submenu_wrap">
                 <div class="submenu">
                 <a href="${path }/sub2#page1"><li>관절치료센터 소개</li></a>
@@ -52,17 +52,17 @@
             </div>
         </ul>
         <ul>
-            <a href="">척추센터</a>
+            <a href="${path }/sub3#page1">척추센터</a>
             <div class="submenu_wrap">
                 <div class="submenu">
                 <a href="${path }/sub3#page1"><li>척추치료센터 소개</li></a>
-                <a href="${path }/sub3#page1"><li>목디스크</li></a>
-                <a href="${path }/sub3#page1"><li>허리디스크</li></a>
+                <a href="${path }/sub3#page2"><li>목디스크</li></a>
+                <a href="${path }/sub3#page3"><li>허리디스크</li></a>
                 </div>
             </div>
         </ul>
         <ul>
-            <a href="">도수재활센터</a>
+            <a href="${path }/sub4#page1">도수재활센터</a>
             <div class="submenu_wrap">
                 <div class="submenu" style="left:-42px;">
                 <a href="${path }/sub4#page1"><li>도수재활센터 소개</li></a>
@@ -70,32 +70,23 @@
             </div>
         </ul>
         <ul>
-            <a href="">외상센터</a>
+            <a href="${path }/sub5#page1">외상센터</a>
             <div class="submenu_wrap">
                 <div class="submenu">
                 <a href="${path }/sub5#page1"><li>상지골절</li></a>
-                <a href="${path }/sub5#page1"><li>하지골절</li></a>
-                <a href="${path }/sub5#page1"><li>척추골절</li></a>
+                <a href="${path }/sub5#page2"><li>하지골절</li></a>
+                <a href="${path }/sub5#page3"><li>척추골절</li></a>
                 </div>
             </div>
         </ul>
         <ul>
-            <a href="">검진센터</a>
+            <a href="${path }/sub6#page1">커뮤니티</a>
             <div class="submenu_wrap">
                 <div class="submenu">
-                <a href="${path }/sub6#page1"><li>검진센터</li></a>
-                <a href="${path }/sub6#page1"><li>일반내과질환</li></a>
-                <a href="${path }/sub6#page1"><li>성인병클리닉</li></a>
-                </div>
-            </div>
-        </ul>
-        <ul>
-            <a href="">커뮤니티</a>
-            <div class="submenu_wrap">
-                <div class="submenu">
-                <a href="${path }/sub7#page1"><li>공지사항</li></a>
-                <a href="${path }/sub7#page1"><li>자유게시판</li></a>
-                <a href="${path }/sub7#page1"><li>뉴스</li></a>
+                <a href="${path }/board/notice"><li>공지사항</li></a>
+                <a href="${path }/sub6#page2"><li>뉴스</li></a>
+                <a href="${path }/data_board/data_boardList"><li>파일게시판</li></a>
+                <a href="${path }/data_board/data_boardList"><li>자유게시판</li></a>
                 </div>
             </div>
         </ul>

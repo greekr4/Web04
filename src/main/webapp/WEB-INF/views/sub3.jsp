@@ -205,7 +205,6 @@ response.setCharacterEncoding("utf-8");
             width: 100%;
             display: block;
             height: 320px;
-            background-image: url(${path}/resources/img/mn02_vs.jpg);
             background-repeat: no-repeat;
         }
 
@@ -217,11 +216,12 @@ response.setCharacterEncoding("utf-8");
             margin: 0 auto;
             font-size: 20px;
         }
-        .ct_wrap2{
+         .ct_wrap2{
         clear:both;
         width: 100%;
         overflow: hidden;
         }
+        
     </style>
 </head>
 <body>
@@ -234,13 +234,14 @@ response.setCharacterEncoding("utf-8");
     </header>
       <div id="ct">
         <div class="ct_wrap">
-     	    <div class="visual">
+    
+              <div class="visual" style="background-image: url(${path}/resources/img/mn03_vs.jpg);">
                 <div class="tit_box">
-                    <h1>관절치료센터 소개</h1>
+                    <h1>척추치료센터 소개</h1>
                 </div>
             </div>
                 <div class="img_box">
-                   <img src="${path}/resources/img/sub2_main.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn03_01_img1.jpg" style="margin: 25px auto;">
                 </div>
                 <div class="heal_wrap">
                 	<div class="heal_tit_box">
@@ -249,26 +250,26 @@ response.setCharacterEncoding("utf-8");
                 	<div class="heal_menu_box">
                 		<ul class="heal_menu">
                 			<li class="heal_menu_btn">도수치료</li>
-                			<li class="heal_menu_btn">운동치료</li>
-                			<li class="heal_menu_btn">체외충격파</li>
-                			<li class="heal_menu_btn">프롤로치료</li>
-                			<li class="heal_menu_btn">관절내시경</li>
+                			<li class="heal_menu_btn">신경성형술</li>
+                			<li class="heal_menu_btn">풍선확장술</li>
+                			<li class="heal_menu_btn">고주파수액감압술</li>
+                			<li class="heal_menu_btn">인공디스크치환술</li>
                 		</ul>
                 	</div>
                 	<div class="heal_img_box heal_item1">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat01.jpg">
+                	<img alt="" src="${path}/resources/img/mn03_01_treat01.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item2">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat02.jpg">
+                	<img alt="" src="${path}/resources/img/mn03_01_treat02.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item3">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat03.jpg">
+                	<img alt="" src="${path}/resources/img/mn03_01_treat03.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item4">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat04.jpg">
+                	<img alt="" src="${path}/resources/img/mn03_01_treat04.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item5">
-                	<img alt="" src="${path}/resources/img/mn02_02_1_treat05.jpg">
+                	<img alt="" src="${path}/resources/img/mn03_01_treat05.jpg">
                 	</div>                	                	                	
                 </div>
           </div>
@@ -328,16 +329,17 @@ response.setCharacterEncoding("utf-8");
     </header>
       <div id="ct">
         <div class="ct_wrap">
- 	        <div class="visual">
+ 	            <div class="visual" style="background-image: url(${path}/resources/img/mn03_vs.jpg);">
                 <div class="tit_box">
-                    <h1>어깨질환</h1>
+                    <h1>목디스크</h1>
                 </div>
             </div>
             <div class ="ct_wrap2">
-            <img src="${path }/resources/img/mn02_02_1_img1.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img3.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img4.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img5.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_02_img1.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_02_img2.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_02_img3.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_02_img4.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_02_img5.jpg" style="margin: 25px auto;">
             </div>
             
      </div>
@@ -352,17 +354,17 @@ response.setCharacterEncoding("utf-8");
     </header>
          <div id="ct">
         <div class="ct_wrap">
- 	            <div class="visual">
+ 	            <div class="visual" style="background-image: url(${path}/resources/img/mn03_vs.jpg);">
                 <div class="tit_box">
-                    <h1>무릎질환</h1>
+                    <h1>허리디스크</h1>
                 </div>
             </div>
             <div class ="ct_wrap2">
-            <img src="${path }/resources/img/mn02_03_1_img1.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img2.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img3.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img4.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img5.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_03_img1.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_03_img2.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_03_img3.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_03_img4.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn03_03_img5.jpg" style="margin: 25px auto;">
             </div>
             
      </div>
@@ -370,138 +372,7 @@ response.setCharacterEncoding("utf-8");
         <footer id="footer">
 	<%@ include file="/resources/html/ft.jsp" %>
     </footer>
-            </section>
-            <section class="page" id="page4">
-   <header id="header">
-	<%@ include file="/resources/html/hd.jsp" %>
-    </header>
-      <div id="ct">
-        <div class="ct_wrap">
-            
-                <div class="tit_box">
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <p class="sub_con">
-                        내용1
-                    </p>
-                </div>
-      </div>
-    </div> <!-- #ct 끝 -->
-        <footer id="footer">
-	<%@ include file="/resources/html/ft.jsp" %>
-    </footer>
-            </section>
-            <section class="page" id="page5">
-                <header id="header">
-	<%@ include file="/resources/html/hd.jsp" %>
-    </header>
-      <div id="ct">
-        <div class="ct_wrap">
-                <div class="tit_box">
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <p class="sub_con">
-                        내용1
-                    </p>
-                </div>
-                          </div>
-    </div> <!-- #ct 끝 -->
-        <footer id="footer">
-	<%@ include file="/resources/html/ft.jsp" %>
-    </footer>
-            </section>
+ </section>
 
 
 </body>

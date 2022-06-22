@@ -173,7 +173,7 @@ response.setCharacterEncoding("utf-8");
         width: 1400px;
         margin: 0 auto;
         }
-        .heal_menu_btn{
+        .heal_menu_btn, .heal_menu_btn2{
         color:#fff;
         float: left;
         margin:0 1px;
@@ -181,15 +181,15 @@ response.setCharacterEncoding("utf-8");
         border: 1px solid #347eb5;
         padding: 20px;
         font-size: 24px;
-        width: 278px;
+        width: 430px;
     	text-align: center;
     	transition:0.5s;
     	cursor: pointer;
         }
-        .heal_menu_btn:hover{
+        .heal_menu_btn:hover, .heal_menu_btn2:hover{
         background-color: #347eb5;
         }
-        .heal_img_box{
+        .heal_img_box, .heal_img_box2{
         clear: both;
         width:1400px;
         margin: 120px auto;
@@ -205,7 +205,6 @@ response.setCharacterEncoding("utf-8");
             width: 100%;
             display: block;
             height: 320px;
-            background-image: url(${path}/resources/img/mn02_vs.jpg);
             background-repeat: no-repeat;
         }
 
@@ -217,11 +216,12 @@ response.setCharacterEncoding("utf-8");
             margin: 0 auto;
             font-size: 20px;
         }
-        .ct_wrap2{
+         .ct_wrap2{
         clear:both;
         width: 100%;
         overflow: hidden;
         }
+        
     </style>
 </head>
 <body>
@@ -234,42 +234,39 @@ response.setCharacterEncoding("utf-8");
     </header>
       <div id="ct">
         <div class="ct_wrap">
-     	    <div class="visual">
+    
+              <div class="visual" style="background-image: url(${path}/resources/img/mn05_vs.jpg);">
                 <div class="tit_box">
-                    <h1>관절치료센터 소개</h1>
+                    <h1>상지골절</h1>
                 </div>
             </div>
                 <div class="img_box">
-                   <img src="${path}/resources/img/sub2_main.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn05_01_img1.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn05_01_img2.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn05_01_img3.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn05_01_img4.jpg" style="margin: 25px auto;">
+                   <img src="${path}/resources/img/mn05_01_img5.jpg" style="margin: 25px auto;">
                 </div>
                 <div class="heal_wrap">
                 	<div class="heal_tit_box">
-                		<h2>치료법</h2>
+                		<h2>상지골절 치료법</h2>
                 	</div>
                 	<div class="heal_menu_box">
                 		<ul class="heal_menu">
                 			<li class="heal_menu_btn">도수치료</li>
                 			<li class="heal_menu_btn">운동치료</li>
-                			<li class="heal_menu_btn">체외충격파</li>
-                			<li class="heal_menu_btn">프롤로치료</li>
                 			<li class="heal_menu_btn">관절내시경</li>
                 		</ul>
                 	</div>
                 	<div class="heal_img_box heal_item1">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat01.jpg">
+                	<img alt="" src="${path}/resources/img/mn05_01_treat01.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item2">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat02.jpg">
+                	<img alt="" src="${path}/resources/img/mn05_01_treat02.jpg">
                 	</div>
                 	<div class="heal_img_box heal_item3">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat03.jpg">
-                	</div>
-                	<div class="heal_img_box heal_item4">
-                	<img alt="" src="${path}/resources/img/mn02_01_1_treat04.jpg">
-                	</div>
-                	<div class="heal_img_box heal_item5">
-                	<img alt="" src="${path}/resources/img/mn02_02_1_treat05.jpg">
-                	</div>                	                	                	
+                	<img alt="" src="${path}/resources/img/mn05_01_treat03.jpg">
+                	</div>              	                	                	
                 </div>
           </div>
     </div> <!-- #ct 끝 -->
@@ -298,20 +295,6 @@ response.setCharacterEncoding("utf-8");
     		$('.heal_img_box').eq(2).css("display","block");
     	});
     	
-    	$('.heal_menu_btn').eq(3).click(function(){
-    		$('.heal_menu_btn').css("background-color","");
-    		$('.heal_menu_btn').eq(3).css("background-color","#347eb5");
-    		$('.heal_img_box').css("display","none");
-    		$('.heal_img_box').eq(3).css("display","block");
-    	});
-    	
-    	$('.heal_menu_btn').eq(4).click(function(){
-    		$('.heal_menu_btn').css("background-color","");
-    		$('.heal_menu_btn').eq(4).css("background-color","#347eb5");
-    		$('.heal_img_box').css("display","none");
-    		$('.heal_img_box').eq(4).css("display","block");
-    	});
-    	
 
     	
     });
@@ -328,18 +311,68 @@ response.setCharacterEncoding("utf-8");
     </header>
       <div id="ct">
         <div class="ct_wrap">
- 	        <div class="visual">
+ 	            <div class="visual" style="background-image: url(${path}/resources/img/mn03_vs.jpg);">
                 <div class="tit_box">
-                    <h1>어깨질환</h1>
+                    <h1>하지골절</h1>
                 </div>
             </div>
             <div class ="ct_wrap2">
-            <img src="${path }/resources/img/mn02_02_1_img1.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img3.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img4.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_02_1_img5.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_02_img1.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_02_img2.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_02_img3.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_02_img4.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_02_img5.jpg" style="margin: 25px auto;">
             </div>
-            
+            <div class="heal_wrap">
+                	<div class="heal_tit_box">
+                		<h2>상지골절 치료법</h2>
+                	</div>
+                	<div class="heal_menu_box">
+                		<ul class="heal_menu">
+                			<li class="heal_menu_btn2">도수치료</li>
+                			<li class="heal_menu_btn2">운동치료</li>
+                			<li class="heal_menu_btn2">관절내시경</li>
+                		</ul>
+                	</div>
+                	<div class="heal_img_box2 heal_item1">
+                	<img alt="" src="${path}/resources/img/mn05_01_treat01.jpg">
+                	</div>
+                	<div class="heal_img_box2 heal_item2">
+                	<img alt="" src="${path}/resources/img/mn05_01_treat02.jpg">
+                	</div>
+                	<div class="heal_img_box2 heal_item3">
+                	<img alt="" src="${path}/resources/img/mn05_01_treat03.jpg">
+                	</div>              	                	                	
+                </div>
+                <script type="text/javascript">
+    $(document).ready(function () {
+    	$('.heal_menu_btn2').eq(0).css("background-color","#347eb5");
+    	
+     	$('.heal_menu_btn2').eq(0).click(function(){
+    		$('.heal_menu_btn2').css("background-color","");
+    		$('.heal_menu_btn2').eq(0).css("background-color","#347eb5");
+    		$('.heal_img_box2').css("display","none");
+    		$('.heal_img_box2').eq(0).css("display","block");
+    	});
+    	
+    	$('.heal_menu_btn2').eq(1).click(function(){
+    		$('.heal_menu_btn2').css("background-color","");
+    		$('.heal_menu_btn2').eq(1).css("background-color","#347eb5");
+    		$('.heal_img_box2').css("display","none");
+    		$('.heal_img_box2').eq(1).css("display","block");
+    	});
+
+    	$('.heal_menu_btn2').eq(2).click(function(){
+    		$('.heal_menu_btn2').css("background-color","");
+    		$('.heal_menu_btn2').eq(2).css("background-color","#347eb5");
+    		$('.heal_img_box2').css("display","none");
+    		$('.heal_img_box2').eq(2).css("display","block");
+    	});
+    	
+
+    	
+    });
+    </script>
      </div>
     </div> <!-- #ct 끝 -->
         <footer id="footer">
@@ -352,17 +385,18 @@ response.setCharacterEncoding("utf-8");
     </header>
          <div id="ct">
         <div class="ct_wrap">
- 	            <div class="visual">
+ 	            <div class="visual" style="background-image: url(${path}/resources/img/mn03_vs.jpg);">
                 <div class="tit_box">
-                    <h1>무릎질환</h1>
+                    <h1>척추골절</h1>
                 </div>
             </div>
             <div class ="ct_wrap2">
-            <img src="${path }/resources/img/mn02_03_1_img1.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img2.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img3.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img4.jpg" style="margin: 25px auto;">
-            <img src="${path }/resources/img/mn02_03_1_img5.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img1.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img2.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img3.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img4.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img5.jpg" style="margin: 25px auto;">
+            <img src="${path }/resources/img/mn05_03_img6.jpg" style="margin: 25px auto;">
             </div>
             
      </div>
@@ -370,138 +404,7 @@ response.setCharacterEncoding("utf-8");
         <footer id="footer">
 	<%@ include file="/resources/html/ft.jsp" %>
     </footer>
-            </section>
-            <section class="page" id="page4">
-   <header id="header">
-	<%@ include file="/resources/html/hd.jsp" %>
-    </header>
-      <div id="ct">
-        <div class="ct_wrap">
-            
-                <div class="tit_box">
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <p class="sub_con">
-                        내용1
-                    </p>
-                </div>
-      </div>
-    </div> <!-- #ct 끝 -->
-        <footer id="footer">
-	<%@ include file="/resources/html/ft.jsp" %>
-    </footer>
-            </section>
-            <section class="page" id="page5">
-                <header id="header">
-	<%@ include file="/resources/html/hd.jsp" %>
-    </header>
-      <div id="ct">
-        <div class="ct_wrap">
-                <div class="tit_box">
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <h2 class="sub_tit">
-                        제목1
-                    </h2>
-                    <p class="sub_con">
-                        내용1
-                    </p>
-                </div>
-                          </div>
-    </div> <!-- #ct 끝 -->
-        <footer id="footer">
-	<%@ include file="/resources/html/ft.jsp" %>
-    </footer>
-            </section>
+ </section>
 
 
 </body>
