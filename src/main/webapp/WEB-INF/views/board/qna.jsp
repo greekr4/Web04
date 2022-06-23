@@ -306,7 +306,7 @@ response.setCharacterEncoding("utf-8");
                     무척조은병원 Q&A 입니다.
                 </div>
                 <div class="table_warp">
-                <button onclick="location.href = '${path}/board/WriteForm?type=2'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
+                <button onclick="location.href = '${path}/board/WriteForm?type=4'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
                     <table>
                         <colgroup>
                             <col style="width:10%;">
@@ -332,7 +332,7 @@ response.setCharacterEncoding("utf-8");
                                 <td class="td_num2">${DTO.no }</td>
                                 <td class="td_subject" style="padding-left:0px">
                                     <div class="bo_tit">
-                                        <a href="${path }/board/more?no=${DTO.no}">${DTO.tit } </a>
+                                        <a href="${path }/board/more_qna?no=${DTO.no}">${DTO.tit } </a>
                                     </div>
                                 </td>
                                 <td class="td_name sv_use"><span class="sv_member">${DTO.writer }</span></td>

@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.tkhospital.dto.C_CommentDTO;
 import com.tkhospital.dto.CommentDTO;
 
 @Repository
@@ -44,6 +45,32 @@ public class CommentDAOImpl implements CommentDAO {
 	public void commentDelete(int cno) throws Exception {
 		sqlSession.delete(namespace+".commentDelete",cno);
 
+	}
+
+	
+	//대댓글
+	@Override
+	public List<C_CommentDTO> C_CommentList(int cno) throws Exception {
+		
+		return sqlSession.selectList(namespace+".c_commentList",cno);
+	}
+
+	@Override
+	public void C_ComentWrite(C_CommentDTO DTO) throws Exception {
+		sqlSession.insert(namespace+".c_commentWrite",DTO);
+		
+	}
+
+	@Override
+	public void C_ComentDelete(int ccno) throws Exception {
+		sqlSession.delete(namespace+".c_commentDelete",ccno);
+		
+	}
+
+	@Override
+	public void C_CommentThumbUp(int ccno) throws Exception {
+		sqlSession.update(namespace+".c_commentThumbUp",ccno);
+		
 	}
 
 }

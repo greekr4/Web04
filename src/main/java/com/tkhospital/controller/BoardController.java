@@ -1,5 +1,6 @@
 package com.tkhospital.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tkhospital.common.ScriptUtils;
 import com.tkhospital.dto.BoardDTO;
+import com.tkhospital.dto.C_CommentDTO;
 import com.tkhospital.dto.CommentDTO;
 import com.tkhospital.service.BoardService;
 import com.tkhospital.service.CommentService;
@@ -82,7 +84,7 @@ public class BoardController {
 	public String qnaList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(4);
 		model.addAttribute("list",list);
-		return "board/news";
+		return "board/qna";
 	}
 	
 	
@@ -95,6 +97,32 @@ public class BoardController {
 		model.addAttribute("DTO",DTO);
 		model.addAttribute("commentList",commentList);
 		return "board/more";
+	}
+	
+	@RequestMapping(value = "more_qna",method = RequestMethod.GET)
+	public String boardRead_qna(Model model,@RequestParam int no) throws Exception {
+		service2.boardRead_viewed(no);
+		ArrayList<Integer> commentIndex = new ArrayList<Integer>();
+		ArrayList<List<C_CommentDTO>> c_cListbox = new ArrayList<List<C_CommentDTO>>();
+		List<CommentDTO> commentList = service3.CommentList(no);
+		int test;
+		System.out.println("one" +commentList.size());
+		System.out.println("three" + commentList.get(0).getCno());
+		
+		for(int i=0;i<commentList.size();i++) {
+			commentIndex.add(commentList.get(i).getCno());
+		}
+		for(int i=0;i<commentIndex.size();i++) {
+			c_cListbox.add(service3.C_CommentList(commentIndex.get(i)));
+		}
+		
+		
+		BoardDTO DTO = service2.boardRead(no);
+		model.addAttribute("DTO",DTO);
+		model.addAttribute("commentList",commentList);
+		model.addAttribute("c_cListbox",c_cListbox);
+		
+		return "board/more_qna";
 	}
 	
 	@RequestMapping(value = "thumbup",method = RequestMethod.GET)
@@ -144,6 +172,9 @@ public class BoardController {
 		} else if(type==3){
 			//자유
 			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./free");
+		} else if(type==4){
+			//자유
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./free");
 		}
 
 //		List<BoardDTO> list = service2.boardList();
@@ -185,7 +216,7 @@ public class BoardController {
 		return "redirect:.board/list"; 
 	}
 	
-	@RequestMapping(value = "cedit",method = RequestMethod.GET)
+	@RequestMapping(value = "cdel",method = RequestMethod.GET)
 	public String cDelete(Model model,@RequestParam int cno) throws Exception {
 		service3.commentDelete(cno);
 		ScriptUtils.alertAndClose(response, "삭제되었습니다.");
@@ -200,6 +231,35 @@ public class BoardController {
 		return "redirect:.board/list";
 	}
 	
+	
+	
+	
+	
+	//대댓글
+	
+	@RequestMapping(value = "ccWrite",method = RequestMethod.POST)
+	public String ccWrite(Model model,C_CommentDTO DTO,HttpServletResponse response) throws Exception {
+			service3.C_ComentWrite(DTO);
+			ScriptUtils.alertAndBackPage(response, "댓글달기성공");
+
+
+		return "redirect:.board/list"; 
+	}
+	
+	@RequestMapping(value = "ccdel",method = RequestMethod.GET)
+	public String ccDelete(Model model,@RequestParam int ccno) throws Exception {
+		service3.C_ComentDelete(ccno);
+		ScriptUtils.alertAndClose(response, "삭제되었습니다.");
+		return "redirect:.board/list";
+	}
+	
+	@RequestMapping(value = "ccthumbup",method = RequestMethod.GET)
+	public void ccthumbup(Model model,@RequestParam int ccno,HttpServletResponse response) throws Exception {
+
+		service3.C_CommentThumbUp(ccno);
+		ScriptUtils.alertAndClose(response, "추천하셨습니다");
+
+	}
 
 	
 	
