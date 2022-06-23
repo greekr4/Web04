@@ -23,4 +23,13 @@ public interface BoardDAO {
 	//글 삭제
 	public void boardDelete(int no) throws Exception;
 	
+	//서치
+	public List<BoardDTO> boardList_search_tit(BoardDTO DTO) throws Exception;
+	public List<BoardDTO> boardList_search_con(BoardDTO DTO) throws Exception;
+	public List<BoardDTO> boardList_search_all(BoardDTO DTO) throws Exception;
+	
+	//댓글 수
+	public void replyUpdate(int no) throws Exception;
+
+	
 }

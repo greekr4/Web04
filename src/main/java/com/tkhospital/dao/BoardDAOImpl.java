@@ -52,6 +52,31 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 
+	@Override
+	public List<BoardDTO> boardList_search_tit(BoardDTO DTO) throws Exception {
+	
+		return sqlSession.selectList(namespace+".boardList_search_tit",DTO);
+	}
+
+	@Override
+	public List<BoardDTO> boardList_search_con(BoardDTO DTO) throws Exception {
+		
+		return sqlSession.selectList(namespace+".boardList_search_con",DTO);
+	}
+
+	@Override
+	public List<BoardDTO> boardList_search_all(BoardDTO DTO) throws Exception {
+		
+		return sqlSession.selectList(namespace+".boardList_search_all",DTO);
+	}
+
+	@Override
+	public void replyUpdate(int no) throws Exception {
+		sqlSession.update(namespace+".reply_update",no);
+		
+	}
+	
+
 
 
 }

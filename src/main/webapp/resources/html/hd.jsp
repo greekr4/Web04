@@ -22,7 +22,6 @@
             <li><a href="${path}/member/updateForm?mid=${sid }">${sid }님</a></li>
             </c:if>
             <c:if test="${sid eq 'admin2' }">
-            <li><a href="${path}/board/list">글목록보기</a></li>
             <li><a href="${path}/member/memberlist">회원목록보기</a></li>
             </c:if>
         </ul>

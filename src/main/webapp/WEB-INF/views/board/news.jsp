@@ -285,7 +285,24 @@ response.setCharacterEncoding("utf-8");
         tr:hover a {
             text-decoration: underline;
         }
-        
+        button {
+        height: 30px;
+	    width: 50px;
+	    padding-top: 7px;
+	    margin-bottom: 10px;
+	    margin-left: 10px;
+	    }
+	    .search_box{
+	    display: inline-block;
+	    }
+	    .search_box input{
+	    height: 30px;
+	    padding-top: 5px;
+	    }
+	    .search_box select, option{
+	    height: 30px;
+    	font-family: monospace;
+		}	
     </style>
 </head>
 <body>
@@ -306,7 +323,19 @@ response.setCharacterEncoding("utf-8");
                     무척조은병원 News 입니다.
                 </div>
                 <div class="table_warp">
-                <button onclick="location.href = '${path}/board/WriteForm?type=2'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
+                <div class="search_box">
+                <form action="${path }/board/news_search" method="POST">
+                <select name="search_type">
+                <option value="1">제목</option>
+                <option value="2">내용</option>
+                <option value="3">제목/내용</option>
+                </select>
+                <input type="hidden" id="type" name="type" value="2">
+                <input type="text" id="search" name="search">
+                <button type="submit">검색</button>
+                </form>
+                </div>
+                <button onclick="location.href = '${path}/board/WriteForm?type=2'" style="float: right;">추가</button>
                     <table>
                         <colgroup>
                             <col style="width:10%;">
@@ -332,7 +361,11 @@ response.setCharacterEncoding("utf-8");
                                 <td class="td_num2">${DTO.no }</td>
                                 <td class="td_subject" style="padding-left:0px">
                                     <div class="bo_tit">
-                                        <a href="${path }/board/more?no=${DTO.no}">${DTO.tit } </a>
+                                        <a href="${path }/board/more?no=${DTO.no}">${DTO.tit } 
+                                        <c:if test="${DTO.reply_count>0 }">
+                                        (<span style="color: red;">${DTO.reply_count }</span>)
+                                      	</c:if>
+                                        </a>
                                     </div>
                                 </td>
                                 <td class="td_name sv_use"><span class="sv_member">${DTO.writer }</span></td>

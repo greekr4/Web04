@@ -10,6 +10,27 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 		select * from shop_board where type = #{type } order by no desc
 	</select>
 	
+	<!-- 댓글 수 업데이트 -->
+	<update id="reply_update">
+	update shop_board
+	set reply_count = (select count(*) from board_comment where bno= #{no})
+	where no = #{no}
+	</update>
+	
+	
+	<!-- search -->
+	<select id="boardList_search_tit" resultType="com.tkhospital.dto.BoardDTO">
+		select * from shop_board where type = #{type } and tit like #{search} order by no desc
+	</select>
+	
+	<select id="boardList_search_con" resultType="com.tkhospital.dto.BoardDTO">
+		select * from shop_board where type = #{type } and con like #{search} order by no desc
+	</select>
+	
+	<select id="boardList_search_all" resultType="com.tkhospital.dto.BoardDTO">
+		select * from shop_board where type = #{type} and (tit like #{search} or con like #{search}) order by no desc
+	</select>
+	
 	<!-- 자세히보기 -->
 	<select id="boardRead" resultType="com.tkhospital.dto.BoardDTO">
 		select * from shop_board where no = #{no }

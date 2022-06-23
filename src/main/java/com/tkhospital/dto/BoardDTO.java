@@ -12,6 +12,8 @@ public class BoardDTO {
 	private int thumb;
 	private int lock_post;
 	private int type;
+	private String search;
+	private int reply_count;
 	
 	public int getNo() {return no;}
 	public void setNo(int no) {this.no = no;}
@@ -34,5 +36,17 @@ public class BoardDTO {
 	}
 	public void setType(int type) {
 		this.type = type;
+	}
+	public String getSearch() {
+		return search;
+	}
+	public void setSearch(String search) {
+		this.search = search;
+	}
+	public int getReply_count() {
+		return reply_count;
+	}
+	public void setReply_count(int reply_count) {
+		this.reply_count = reply_count;
 	}
 }

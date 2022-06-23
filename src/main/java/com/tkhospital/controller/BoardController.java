@@ -59,6 +59,7 @@ public class BoardController {
 	@RequestMapping("notice")
 	public String noticeList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(1);
+		
 		model.addAttribute("list",list);
 		return "board/notice";
 	}
@@ -87,11 +88,81 @@ public class BoardController {
 		return "board/qna";
 	}
 	
+	@RequestMapping("notice_search")
+	public String noticeList_search(Model model,HttpServletResponse response,BoardDTO DTO,@RequestParam int search_type) throws Exception {
+		DTO.setSearch("%"+DTO.getSearch()+"%");
+		List<BoardDTO> list = null;
+		if (search_type == 1) {
+			//제목
+			list = service2.boardList_search_tit(DTO);
+		}else if(search_type ==2) {
+			//내용
+			list = service2.boardList_search_con(DTO);
+		}else {
+			list = service2.boardList_search_all(DTO);
+		}
+		model.addAttribute("list",list);
+		return "board/notice";
+	}
+	
+	@RequestMapping("news_search")
+	public String newsList_search(Model model,HttpServletResponse response,BoardDTO DTO,@RequestParam int search_type) throws Exception {
+		DTO.setSearch("%"+DTO.getSearch()+"%");
+		List<BoardDTO> list = null;
+		if (search_type == 1) {
+			//제목
+			list = service2.boardList_search_tit(DTO);
+		}else if(search_type ==2) {
+			//내용
+			list = service2.boardList_search_con(DTO);
+		}else {
+			list = service2.boardList_search_all(DTO);
+		}
+		model.addAttribute("list",list);
+		return "board/news";
+	}
+	
+	@RequestMapping("free_search")
+	public String freeList_search(Model model,HttpServletResponse response,BoardDTO DTO,@RequestParam int search_type) throws Exception {
+		DTO.setSearch("%"+DTO.getSearch()+"%");
+		List<BoardDTO> list = null;
+		if (search_type == 1) {
+			//제목
+			list = service2.boardList_search_tit(DTO);
+		}else if(search_type ==2) {
+			//내용
+			list = service2.boardList_search_con(DTO);
+		}else {
+			list = service2.boardList_search_all(DTO);
+		}
+		model.addAttribute("list",list);
+		return "board/free";
+	}
+	
+	@RequestMapping("qna_search")
+	public String qnaList_search(Model model,HttpServletResponse response,BoardDTO DTO,@RequestParam int search_type) throws Exception {
+		DTO.setSearch("%"+DTO.getSearch()+"%");
+		List<BoardDTO> list = null;
+		if (search_type == 1) {
+			//제목
+			list = service2.boardList_search_tit(DTO);
+		}else if(search_type ==2) {
+			//내용
+			list = service2.boardList_search_con(DTO);
+		}else {
+			list = service2.boardList_search_all(DTO);
+		}
+		model.addAttribute("list",list);
+		return "board/qna";
+	}
+	
+	
 	
 	
 	@RequestMapping(value = "more",method = RequestMethod.GET)
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
 		service2.boardRead_viewed(no);
+		service2.replyUpdate(no);
 		List<CommentDTO> commentList = service3.CommentList(no);
 		BoardDTO DTO = service2.boardRead(no);
 		model.addAttribute("DTO",DTO);
@@ -102,6 +173,7 @@ public class BoardController {
 	@RequestMapping(value = "more_qna",method = RequestMethod.GET)
 	public String boardRead_qna(Model model,@RequestParam int no) throws Exception {
 		service2.boardRead_viewed(no);
+		service2.replyUpdate(no);
 		ArrayList<Integer> commentIndex = new ArrayList<Integer>();
 		ArrayList<List<C_CommentDTO>> c_cListbox = new ArrayList<List<C_CommentDTO>>();
 		List<CommentDTO> commentList = service3.CommentList(no);
@@ -122,6 +194,31 @@ public class BoardController {
 		}
 		
 		return "board/more_qna";
+	}
+	
+	@RequestMapping(value = "more_test",method = RequestMethod.GET)
+	public String boardRead_test(Model model,@RequestParam int no) throws Exception {
+		service2.boardRead_viewed(no);
+		ArrayList<Integer> commentIndex = new ArrayList<Integer>();
+		ArrayList<List<C_CommentDTO>> c_cListbox = new ArrayList<List<C_CommentDTO>>();
+		List<CommentDTO> commentList = service3.CommentList(no);
+		
+		for(int i=0;i<commentList.size();i++) {
+			commentIndex.add(commentList.get(i).getCno());
+		}
+		for(int i=0;i<commentIndex.size();i++) {
+			c_cListbox.add(service3.C_CommentList(commentIndex.get(i)));
+		}
+		
+		
+		BoardDTO DTO = service2.boardRead(no);
+		model.addAttribute("DTO",DTO);
+		model.addAttribute("commentList",commentList);
+		if(c_cListbox.size()>0) {
+		model.addAttribute("c_cListbox",c_cListbox);
+		}
+		
+		return "board/more";
 	}
 	
 	@RequestMapping(value = "thumbup",method = RequestMethod.GET)
@@ -212,6 +309,7 @@ public class BoardController {
 	@RequestMapping(value = "cWrite",method = RequestMethod.POST)
 	public String cWrite(Model model,CommentDTO DTO,HttpServletResponse response) throws Exception {
 			service3.commentWrite(DTO);
+			service2.replyUpdate(DTO.getBno());
 			ScriptUtils.alertAndBackPage(response, "댓글달기성공");
 
 
@@ -219,8 +317,9 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value = "cdel",method = RequestMethod.GET)
-	public String cDelete(Model model,@RequestParam int cno) throws Exception {
+	public String cDelete(Model model,@RequestParam int cno,@RequestParam int no) throws Exception {
 		service3.commentDelete(cno);
+		service2.replyUpdate(no);
 		ScriptUtils.alertAndClose(response, "삭제되었습니다.");
 		return "redirect:.board/list";
 	}

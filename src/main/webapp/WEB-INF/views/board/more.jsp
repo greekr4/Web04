@@ -89,6 +89,7 @@
     table.comment_form{
     margin-top: 50px;
     }
+    .c_comment td {padding-left: 30px;}
 	</style>
 </head>
 <body>
@@ -147,6 +148,9 @@ ${DTO.con }
 <c:if test="${DTO.type==3 }">
 <button onclick="location.href = '${path }/board/free'">목록</button>
 </c:if>
+<c:if test="${DTO.type==4 }">
+<button onclick="location.href = '${path }/board/qna'">목록</button>
+</c:if>
 <c:if test="${sid == 'admin2' }">
 <button onclick="location.href = '${path }/board/EditForm?no=${DTO.no}'">수정</button>
 <button onclick="location.href = '${path }/board/del?no=${DTO.no}&type=${DTO.type }'">삭제</button>
@@ -158,7 +162,7 @@ ${DTO.con }
 <table class="comment">
 <thead>
 <tr class="comment_top">
-<td colspan="3">댓글(${fn:length(commentList) })</td>
+<td colspan="3" style="text-align: left;">댓글<span style="color: red;">(${fn:length(commentList) })</span></td>
 </tr>
 </thead>
 <tbody>
@@ -169,12 +173,12 @@ ${DTO.con }
 <td colspan="2" class="comment_winfo">
 ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/>
 
-
+<button onclick="$('.cc_form').eq(${status.index}).css('display','block')">답글</button>
 <c:choose>
 	<c:when test="${sid==CDTO.writer }">
 	<!-- 아이디가 같으면 -->
 	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
-	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }','hiddenframe1')">삭제</button>
+	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }&no=${DTO.no }','hiddenframe1')">삭제</button>
 	</c:when>
 	
 	<c:when test="${fn:contains(sid,'admin') }">
@@ -207,6 +211,53 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
 </form>
 </td>
 </tr>
+
+<tr class="cc_form" style="display:none;">
+<form action="${path }/board/ccWrite" method="POST">
+<td>
+<input type="hidden" name="cno" value="${CDTO.cno }">
+<input type="hidden" name="writer" value="${sid }">
+<input type="text" name="con">
+<button>작성</button>
+</td>
+</form>
+</tr>
+
+
+
+<c:forEach items="${c_cListbox }" var="List">
+ <c:forEach items="${List }" var="ccc">
+ 	<c:if test="${CDTO.cno == ccc.cno }">
+ 	<tr class="c_comment">
+ 	<td colspan="2"> ㄴ>&nbsp;&nbsp;&nbsp;${ccc.writer} | <fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/>
+ 	
+ 	<c:choose>
+	<c:when test="${sid==CDTO.writer }">
+	<!-- 아이디가 같으면 -->
+	<button onclick="window.open('${path}/board/ccdel?ccno=${ccc.ccno }','hiddenframe1')">삭제</button>
+	</c:when>
+	
+	<c:when test="${fn:contains(sid,'admin') }">
+	<!-- 운영자면 -->
+	<button onclick="window.open('${path}/board/ccdel?ccno=${CDTO.ccno }','hiddenframe1')">삭제</button>
+	</c:when>
+
+</c:choose>
+ 	
+ 	
+ 	</td>
+ 	<td style="text-align: right;">추천:${ccc.thumb }
+ 	<button onclick="window.open('${path}/board/ccthumbup?ccno=${ccc.ccno }','hiddenframe1')">추천</button>
+ 	</td>
+ 	</tr>
+ 	<tr class="c_comment">
+ 	<td style="height: 50px; vertical-align: top;">${ccc.con }</td>
+ 	</tr>
+ 	</c:if>
+ </c:forEach>
+</c:forEach>
+
+
 
 </c:forEach>
 </tbody>

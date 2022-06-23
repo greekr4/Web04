@@ -50,6 +50,26 @@ public class BoardServiceImpl implements BoardService {
 		dao.boardThumbUp(no);
 	}
 
+	@Override
+	public List<BoardDTO> boardList_search_tit(BoardDTO DTO) throws Exception {
+		return dao.boardList_search_tit(DTO);
+	}
+
+	@Override
+	public List<BoardDTO> boardList_search_con(BoardDTO DTO) throws Exception {
+		return dao.boardList_search_con(DTO);
+	}
+
+	@Override
+	public List<BoardDTO> boardList_search_all(BoardDTO DTO) throws Exception {
+		return dao.boardList_search_all(DTO);
+	}
+
+	@Override
+	public void replyUpdate(int no) throws Exception {
+		dao.replyUpdate(no);
+	}
+
 
 
 }
