@@ -105,9 +105,6 @@ public class BoardController {
 		ArrayList<Integer> commentIndex = new ArrayList<Integer>();
 		ArrayList<List<C_CommentDTO>> c_cListbox = new ArrayList<List<C_CommentDTO>>();
 		List<CommentDTO> commentList = service3.CommentList(no);
-		int test;
-		System.out.println("one" +commentList.size());
-		System.out.println("three" + commentList.get(0).getCno());
 		
 		for(int i=0;i<commentList.size();i++) {
 			commentIndex.add(commentList.get(i).getCno());
@@ -120,7 +117,9 @@ public class BoardController {
 		BoardDTO DTO = service2.boardRead(no);
 		model.addAttribute("DTO",DTO);
 		model.addAttribute("commentList",commentList);
+		if(c_cListbox.size()>0) {
 		model.addAttribute("c_cListbox",c_cListbox);
+		}
 		
 		return "board/more_qna";
 	}
@@ -149,6 +148,9 @@ public class BoardController {
 		} else if(type==3){
 			//자유
 			ScriptUtils.alertAndMovePage(response, "삭제했습니다", "./free");
+		} else if(type==4){
+			//qna
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./qna");
 		}
 		return "redirect:.board/list";
 	}
@@ -173,8 +175,8 @@ public class BoardController {
 			//자유
 			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./free");
 		} else if(type==4){
-			//자유
-			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./free");
+			//qna
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./qna");
 		}
 
 //		List<BoardDTO> list = service2.boardList();

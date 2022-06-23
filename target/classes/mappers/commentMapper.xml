@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 
 	<!-- 대댓글 -->
 	<select id="c_commentList" resultType="com.tkhospital.dto.C_CommentDTO">
-		select * from comment_comment where cno = #{cno } order by ccno desc
+		select * from comment_comment where cno = #{cno } order by ccno
 	</select>
 	
 	<insert id="c_commentWrite">
