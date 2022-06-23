@@ -17,8 +17,8 @@ public class BoardDAOImpl implements BoardDAO {
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<BoardDTO> boardList() throws Exception {
-		return sqlSession.selectList(namespace + ".boardList");
+	public List<BoardDTO> boardList(int type) throws Exception {
+		return sqlSession.selectList(namespace + ".boardList",type);
 	}
 
 	@Override

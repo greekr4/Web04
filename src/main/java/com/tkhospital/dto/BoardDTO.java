@@ -11,6 +11,7 @@ public class BoardDTO {
 	private int viewed;
 	private int thumb;
 	private int lock_post;
+	private int type;
 	
 	public int getNo() {return no;}
 	public void setNo(int no) {this.no = no;}
@@ -28,4 +29,10 @@ public class BoardDTO {
 	public void setThumb(int thumb) {this.thumb = thumb;}
 	public int getLock_post() {return lock_post;}
 	public void setLock_post(int lock_post) {this.lock_post = lock_post;}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
 }

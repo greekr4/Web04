@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
     <link rel="stylesheet" href="${path}/resources/css/normalize.css">
     <link rel="stylesheet" href="${path}/resources/css/common.css">
 	<title>HomeZZ</title>
@@ -22,6 +23,72 @@
     padding-top: 5px;
 	}
 	
+	.table_wrap{
+	width: 1400px;
+	margin: 150px auto;
+	}
+	.table_wrap table {
+	width: 100%;
+	margin: 0 auto;	
+	table-layout: fixed;
+	border-spacing: 0;
+	}
+	.table_wrap .top_info th{
+	border-bottom: 1px solid #777;
+	}
+	.table_wrap .main_tit{
+	border-bottom: 1px solid #777;
+	padding-top: 15px;
+	}
+	.table_wrap .main_con{
+	text-align: left;
+	vertical-align:top;
+	min-width: 100%;
+	height: 500px;
+	line-height: 1.5em;
+	padding-left: 2em;
+	padding-top: 2em;
+	}
+	.table_wrap .main_btn{
+	border-bottom: 1px solid #777;
+	}
+	.table_wrap button{
+	height: 30px;
+    width: 50px;
+    padding-top: 7px;
+    margin-bottom: 10px;
+    }
+    .table_wrap .foot_btn td{
+    text-align:right;
+    padding-top: 10px;
+    }
+    .table_wrap .top_info{
+    color: #999;
+    }
+    table.comment {
+    margin-top: 100px;
+     }
+    .comment .comment_thumb{
+    text-align: right;
+    }
+    .comment .comment_top td{
+    border-bottom: 1px solid #777;
+    padding-bottom: 10px;
+    }
+    .comment .comment_main_info{
+    color: #777;
+    }
+    .comment .comment_main_info td{
+    padding-top: 12px;
+    }
+    .comment .comment_main_con td{
+    padding-top: 12px;
+    height: 100px;
+    vertical-align: top;
+    }
+    table.comment_form{
+    margin-top: 50px;
+    }
 	</style>
 </head>
 <body>
@@ -30,55 +97,134 @@
     </header>
     
 <div id="ct">
-<div style="width: 1600px; margin: 150px auto;">
-<form action="./Write" method="post">
-<table style="width: 100%; margin: 0 auto;">
-<tr>
-<th>제목</th> <td><input type="text" name="tit" placeholder="tit" style="width: 100%" value="${DTO.tit }" readonly></td>
-<th>작성자</th><td><input type="text" name="writer" placeholder="writer" style="width: 100%" value="${DTO.writer }" readonly></td>
-<th>Lock_post</th><td><input type="text" name="lock_post" placeholder="lock_post" style="width: 100%" value="${DTO.lock_post }" readonly></td>
+<div class="table_wrap">
+<iframe width=0 height=0 name="hiddenframe1" style="display:none;"></iframe>
+<table>
+<thead>
+<tr class="top_type">
+<th colspan="3">
+<c:if test="${DTO.type==1 }">
+<h3>공지사항</h3>
+</c:if>
+<c:if test="${DTO.type==2 }">
+<h3>뉴스</h3>
+</c:if>
+<c:if test="${DTO.type==3 }">
+<h3>자유게시판</h3>
+</c:if>
+</th>
 </tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
+<tr class="top_info">
+<th>${DTO.writer }</th>
+<th><fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/></th>
+<th>조회: ${DTO.viewed } 추천: ${DTO.thumb }</th>
+</tr>
+</thead>
+<tbody>
 <tr>
-<th>내용</th>
-<td colspan="5">
-<textarea rows="" cols="" name="con" style="width: 100% ;height: 330px;" readonly>
+<th colspan="3" class="main_tit">
+<h1>${DTO.tit }</h1>
+</th>
+</tr>
+<tr>
+<th colspan="3" class="main_con">
 ${DTO.con }
-</textarea>
+</th>
+</tr>
+<tr>
+<th colspan="3" class="main_btn"><button onclick="window.open('${path}/board/thumbup?no=${DTO.no }','hiddenframe1')">추천</button></th>
+</tr>
+</tbody>
+<tfoot>
+<tr class="foot_btn">
+<td colspan="3">
+<c:if test="${DTO.type==1 }">
+<button onclick="location.href = '${path }/board/notice'">목록</button>
+</c:if>
+<c:if test="${DTO.type==2 }">
+<button onclick="location.href = '${path }/board/news'">목록</button>
+</c:if>
+<c:if test="${DTO.type==3 }">
+<button onclick="location.href = '${path }/board/free'">목록</button>
+</c:if>
+<c:if test="${sid == 'admin2' }">
+<button onclick="location.href = '${path }/board/EditForm?no=${DTO.no}'">수정</button>
+<button onclick="location.href = '${path }/board/del?no=${DTO.no}&type=${DTO.type }'">삭제</button>
+</c:if>
 </td>
 </tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
-<tr>
-<th>조회수</th> <td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.viewed }" readonly></td>
-<th>추천수</th><td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.thumb }" readonly></td>
-<td><input type="text" onclick="window.open('${path}/board/thumbup?no=${DTO.no }')" style="width: 20%; text-align: center; padding-left: 0;" value="추천" readonly></td>
+</tfoot>
+</table>
+<table class="comment">
+<thead>
+<tr class="comment_top">
+<td colspan="3">댓글(${fn:length(commentList) })</td>
 </tr>
-<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
-<tr>
-<td>&nbsp;</td>
-</tr>
-<tr>
-<td>&nbsp;</td>
-<td colspan="5">
-<a href="${path }/board/EditForm?no=${DTO.no}"><button type="button" style="width: 100%; height: 50px">수정하러가기</button></a>
+</thead>
+<tbody>
+
+
+<c:forEach items="${commentList }" var="CDTO" varStatus="status">
+<tr class="comment_main_info">
+<td colspan="2" class="comment_winfo">
+${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/>
+
+
+<c:choose>
+	<c:when test="${sid==CDTO.writer }">
+	<!-- 아이디가 같으면 -->
+	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
+	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }','hiddenframe1')">삭제</button>
+	</c:when>
+	
+	<c:when test="${fn:contains(sid,'admin') }">
+	<!-- 운영자면 -->
+	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
+	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }','hiddenframe1')">삭제</button>
+	</c:when>
+
+</c:choose>
+
+
+
+
+
+
+
+</td>
+<td class="comment_thumb">
+추천:${CDTO.thumb }
+<button onclick="window.open('${path}/board/cthumbup?cno=${CDTO.cno }','hiddenframe1')">추천</button>
 </td>
 </tr>
-<tr>
-<td>&nbsp;</td>
-<td colspan="5">
-<a href="${path }/board/del?no=${DTO.no}"><button type="button" style="width: 100%; height: 50px">삭제</button></a>
+<tr class="comment_main_con">
+<td colspan="3">
+<span class="c_con">${CDTO.con }</span>
+<form action="${path }/board/cUpdate" class="cedit_form" method="POST" style="display: none;">
+<input type="hidden" name="cno" id="cno" value="${CDTO.cno }">
+<input type="text" name="con" id="con" class="input_con" value="${CDTO.con }">
+<button type="submit">수정</button>
+</form>
 </td>
 </tr>
 
+</c:forEach>
+</tbody>
+</table>
+<c:if test="${!empty sid }">
+<form action="${path }/board/cWrite" id="comment_form" method="post">
+<input type="hidden" name="bno" value="${DTO.no }">
+<input type="hidden" name="writer" value="${sid }">
+<table class="comment_form">
+<tbody>
 <tr>
-<td>&nbsp;</td>
-<td colspan="5">
-<a href="${path }/board/list"><button type="button" style="width: 100%; height: 50px">목록</button></a>
-</td>
+<td colspan="2" style="width:95%;"><input style="width: 100%;" type="text" name="con" id="con" class="con" placeholder="댓글을 작성해보세요" required></td>
+<td style="padding-top: 10px; text-align: right;"><button type="submit">작성</button></td>
 </tr>
-
+</tbody>
 </table>
 </form>
+</c:if>
  </div>
 </div>
 

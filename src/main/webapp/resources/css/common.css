@@ -389,17 +389,17 @@ ul {
     border-bottom: 1px solid #425c96;
 }
 
-.board_box a {
+.board_box a.more_btn {
     color: #425c96;
     position: relative;
     display: inline-block;
     border: 1px solid #425c96;
     width: 30px;
     top: -5px;
-    left: 375px;
+    left: 410px;
     font-family: none;
 }
-.board_box a:hover {
+.board_box a.more_btn:hover {
     color: red;
     border: 1px solid red;
 }

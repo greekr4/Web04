@@ -306,6 +306,7 @@ response.setCharacterEncoding("utf-8");
                     무척조은병원 News 입니다.
                 </div>
                 <div class="table_warp">
+                <button onclick="location.href = '${path}/board/WriteForm?type=2'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
                     <table>
                         <colgroup>
                             <col style="width:10%;">

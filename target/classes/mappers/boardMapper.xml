@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 <mapper namespace="com.tkhospital.boardMapper">
 	<!-- 리스트 -->
 	<select id="boardList" resultType="com.tkhospital.dto.BoardDTO">
-		select * from shop_board order by no desc
+		select * from shop_board where type = #{type } order by no desc
 	</select>
 	
 	<!-- 자세히보기 -->
@@ -31,7 +31,8 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 					sysdate,
 					0,
 					0,
-					#{lock_post }
+					#{lock_post },
+					#{type }
 					)
 	</insert>
 	<!-- 글수정 -->

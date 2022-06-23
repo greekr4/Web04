@@ -43,15 +43,13 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) throws Exception {
-		logger.info("Welcome home! The client locale is {}.", locale);
+
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		List<BoardDTO> list = service.boardList(1);		//공지사항
+		List<BoardDTO> list2 = service.boardList(2);	//뉴스
 		
-		String formattedDate = dateFormat.format(date);
-		
-		List<BoardDTO> list = service.boardList();
 		model.addAttribute("list",list);
+		model.addAttribute("list2",list2);
 		return "home";
 	}
 	

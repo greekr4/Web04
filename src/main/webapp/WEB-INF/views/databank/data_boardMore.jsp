@@ -76,7 +76,7 @@ ${DTO.con }
 <tr>
 <th>조회수</th> <td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.viewed }" readonly></td>
 <th>추천수</th><td><input type="text" name="" placeholder="" style="width: 100%" value="${DTO.thumb }" readonly></td>
-<td><input type="text" onclick="window.open('${path}/data_board/thumbup?no=${DTO.no }','hiddenframe1', 'width=400, height=300')" style="width: 20%; text-align: center; padding-left: 0;" value="추천" readonly></td>
+<td><input type="text" onclick="window.open('${path}/data_board/thumbup?no=${DTO.no }','hiddenframe1')" style="width: 20%; text-align: center; padding-left: 0;" value="추천" readonly></td>
 </tr>
 <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr> <!-- 야매로 한줄  -->
 <tr>

@@ -13,7 +13,6 @@
     <div class="util_wrap">
     <div class="util_menu">
         <ul>
-            <li><a href="${path}/data_board/WriteForm">테스트</a></li>
             <c:if test="${sid==null }">
             <li><a href="${path}/member/agreement">회원가입</a></li>
             <li><a href="${path}/member/loginForm">로그인</a></li>
@@ -80,12 +79,13 @@
             </div>
         </ul>
         <ul>
-            <a href="${path }/sub6#page1">커뮤니티</a>
+            <a href="${path }/board/notice">커뮤니티</a>
             <div class="submenu_wrap">
                 <div class="submenu">
                 <a href="${path }/board/notice"><li>공지사항</li></a>
                 <a href="${path }/board/news"><li>뉴스</li></a>
                 <a href="${path }/board/free"><li>자유게시판</li></a>
+                <a href="${path }/board/qna"><li>문의</li></a>
                 <a href="${path }/data_board/data_boardList"><li>파일게시판</li></a>
                 </div>
             </div>

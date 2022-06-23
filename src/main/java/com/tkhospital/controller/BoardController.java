@@ -1,24 +1,23 @@
 package com.tkhospital.controller;
 
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tkhospital.common.ScriptUtils;
 import com.tkhospital.dto.BoardDTO;
+import com.tkhospital.dto.CommentDTO;
 import com.tkhospital.service.BoardService;
+import com.tkhospital.service.CommentService;
 
 
 /**
@@ -34,6 +33,12 @@ public class BoardController {
 	@Inject
 	private BoardService service2;
 	
+	@Inject
+	private CommentService service3;
+	
+	@Inject
+	private HttpServletResponse response;
+	
 	ScriptUtils ScriptUtils = new ScriptUtils();
 	
 	
@@ -44,28 +49,38 @@ public class BoardController {
 	
 	@RequestMapping("list")
 	public String boardList(Model model,HttpServletResponse response) throws Exception {
-		List<BoardDTO> list = service2.boardList();
+		List<BoardDTO> list = service2.boardList(1);
 		model.addAttribute("list2",list);
 		return "board/list"; //board/list.jsp
 	}
-	
+	//notice 1
 	@RequestMapping("notice")
 	public String noticeList(Model model,HttpServletResponse response) throws Exception {
-		List<BoardDTO> list = service2.boardList();
+		List<BoardDTO> list = service2.boardList(1);
 		model.addAttribute("list",list);
 		return "board/notice";
 	}
 	
+	//news 2
+	@RequestMapping("news")
+	public String newsList(Model model,HttpServletResponse response) throws Exception {
+		List<BoardDTO> list = service2.boardList(2);
+		model.addAttribute("list",list);
+		return "board/news";
+	}
+	//free 3
 	@RequestMapping("free")
 	public String freeList(Model model,HttpServletResponse response) throws Exception {
-		List<BoardDTO> list = service2.boardList();
+		List<BoardDTO> list = service2.boardList(3);
 		model.addAttribute("list",list);
 		return "board/free";
 	}
 	
-	@RequestMapping("news")
-	public String newsList(Model model,HttpServletResponse response) throws Exception {
-		List<BoardDTO> list = service2.boardList();
+	//qna 4
+	
+	@RequestMapping("qna")
+	public String qnaList(Model model,HttpServletResponse response) throws Exception {
+		List<BoardDTO> list = service2.boardList(4);
 		model.addAttribute("list",list);
 		return "board/news";
 	}
@@ -75,8 +90,10 @@ public class BoardController {
 	@RequestMapping(value = "more",method = RequestMethod.GET)
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
 		service2.boardRead_viewed(no);
+		List<CommentDTO> commentList = service3.CommentList(no);
 		BoardDTO DTO = service2.boardRead(no);
 		model.addAttribute("DTO",DTO);
+		model.addAttribute("commentList",commentList);
 		return "board/more";
 	}
 	
@@ -90,24 +107,45 @@ public class BoardController {
 	}
 	
 	
+	
+	
 	@RequestMapping(value = "del",method = RequestMethod.GET)
-	public String boardDelete(Model model,@RequestParam int no) throws Exception {
+	public String boardDelete(Model model,@RequestParam int no,@RequestParam int type) throws Exception {
 		service2.boardDelete(no);
-		List<BoardDTO> list = service2.boardList();
-		model.addAttribute("list2",list);
-		return "board/list";
+		if (type==1) {
+			//공지사항
+			ScriptUtils.alertAndMovePage(response, "삭제했습니다.", "./notice");
+		} else if(type==2){
+			//뉴스
+			ScriptUtils.alertAndMovePage(response, "삭제했습니다", "./news");
+		} else if(type==3){
+			//자유
+			ScriptUtils.alertAndMovePage(response, "삭제했습니다", "./free");
+		}
+		return "redirect:.board/list";
 	}
 	
-	@RequestMapping("addForm")
-	public String boardaddForm(Model model) throws Exception {
-
-		return "board/addForm"; //board/list.jsp
+	@RequestMapping("WriteForm")
+	public String boardaddForm(Model model,@RequestParam int type) throws Exception {
+		model.addAttribute("type", type);
+		return "board/BoardWriteForm"; //board/list.jsp
 	}
 	
 	@RequestMapping(value = "Write",method = RequestMethod.POST)
 	public String boardWrite(Model model,BoardDTO DTO,HttpServletResponse response) throws Exception {
 		service2.boardWrite(DTO);
-		ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./list");
+		int type = DTO.getType();
+		if (type==1) {
+			//공지사항
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./notice");
+		} else if(type==2){
+			//뉴스
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./news");
+		} else if(type==3){
+			//자유
+			ScriptUtils.alertAndMovePage(response, "글쓰기성공", "./free");
+		}
+
 //		List<BoardDTO> list = service2.boardList();
 //		model.addAttribute("list2",list);
 		return "redirect:.board/list"; 
@@ -128,6 +166,41 @@ public class BoardController {
 		return ""; 
 	}
 	
+	//////////////댓글
+	
+	@RequestMapping(value = "cthumbup",method = RequestMethod.GET)
+	public void cthumbup(Model model,@RequestParam int cno,HttpServletResponse response) throws Exception {
+
+		service3.commentThumbUp(cno);
+		ScriptUtils.alertAndClose(response, "추천하셨습니다");
+
+	}
+	
+	@RequestMapping(value = "cWrite",method = RequestMethod.POST)
+	public String cWrite(Model model,CommentDTO DTO,HttpServletResponse response) throws Exception {
+			service3.commentWrite(DTO);
+			ScriptUtils.alertAndBackPage(response, "댓글달기성공");
+
+
+		return "redirect:.board/list"; 
+	}
+	
+	@RequestMapping(value = "cedit",method = RequestMethod.GET)
+	public String cDelete(Model model,@RequestParam int cno) throws Exception {
+		service3.commentDelete(cno);
+		ScriptUtils.alertAndClose(response, "삭제되었습니다.");
+		return "redirect:.board/list";
+	}
+	
+	
+	@RequestMapping(value = "cUpdate",method = RequestMethod.POST)
+	public String cDelete(Model model,CommentDTO DTO) throws Exception {
+		service3.commentUpdate(DTO);
+		ScriptUtils.alertAndBackPage(response, "수정.");
+		return "redirect:.board/list";
+	}
+	
+
 	
 	
 	

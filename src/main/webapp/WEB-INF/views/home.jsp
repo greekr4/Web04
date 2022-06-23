@@ -133,7 +133,7 @@
 
             </div>
             <div class="main_about_btnbox">
-                <a href="#">자세히 보기</a>
+                <a href="${path }/sub1#page1">자세히 보기</a>
             </div>
 
         </div>
@@ -141,8 +141,8 @@
         <div class="board_box">
             <div class="review_box">
                 <div class="board_tit">
-                    <h2>Real Review
-                        <a href="#">+</a>
+                    <h2>Notice
+                        <a class="more_btn" href="${path }/board/notice">+</a>
                     </h2>
                 </div>
                 <div class="board_list">
@@ -150,7 +150,7 @@
                         <tbody>
                         <c:forEach items="${list }" var="DTO" begin="0" end="5">
                             <tr>
-                                <td width="440px;">${DTO.tit }</td>
+                                <td width="440px;"><a href="${path }/board/more?no=${DTO.no}">${DTO.tit }</a></td>
                                 <td><fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/></td>
                             </tr>
                             </c:forEach>
@@ -160,16 +160,16 @@
             </div>
             <div class="news_box">
                 <div class="board_tit">
-                    <h2>News
-                        <a href="#">+</a>
+                    <h2>News &nbsp;&nbsp;
+                        <a class="more_btn" href="${path }/board/news">+</a>
                     </h2>
                 </div>
                 <div class="board_list">
                     <table>
                         <tbody>
-                         <c:forEach items="${list }" var="DTO" begin="0" end="5">
+                         <c:forEach items="${list2 }" var="DTO" begin="0" end="5">
                             <tr>
-                                <td width="440px;">${DTO.tit }</td>
+                                <td width="440px;"><a href="${path }/board/more?no=${DTO.no}">${DTO.tit }</a></td>
                                 <td><fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/></td>
                             </tr>
                          </c:forEach>

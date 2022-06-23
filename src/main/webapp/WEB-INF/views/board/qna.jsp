@@ -297,16 +297,16 @@ response.setCharacterEncoding("utf-8");
         <div class="page_warp">
  	         <div class="visual" style="background-image: url(${path}/resources/img/mn07_vs.jpg);">
                 <div class="tit_box">
-                    <h1>공지사항</h1>
+                    <h1>Q&A</h1>
                 </div>
 			</div>
             <div class="board">
-                <p class="page_tit">공지사항</p>
+                <p class="page_tit">Q&A</p>
                 <div class="txt_box">
-                    무척조은병원 공지사항 게시판 입니다.
+                    무척조은병원 Q&A 입니다.
                 </div>
                 <div class="table_warp">
-                <button onclick="location.href = '${path}/board/WriteForm?type=1'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
+                <button onclick="location.href = '${path}/board/WriteForm?type=2'" style="height: 30px;width: 50px;padding-top: 7px;margin-bottom: 10px;">추가</button>
                     <table>
                         <colgroup>
                             <col style="width:10%;">
