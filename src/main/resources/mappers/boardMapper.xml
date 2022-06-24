@@ -53,7 +53,8 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 					0,
 					0,
 					#{lock_post },
-					#{type }
+					#{type },
+					0
 					)
 	</insert>
 	<!-- 글수정 -->

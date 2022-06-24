@@ -59,7 +59,9 @@ public class BoardController {
 	@RequestMapping("notice")
 	public String noticeList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(1);
-		
+		for(int i=0;i<list.size();i++) {
+		service2.replyUpdate(list.get(i).getNo());
+		}
 		model.addAttribute("list",list);
 		return "board/notice";
 	}
@@ -68,6 +70,9 @@ public class BoardController {
 	@RequestMapping("news")
 	public String newsList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(2);
+		for(int i=0;i<list.size();i++) {
+		service2.replyUpdate(list.get(i).getNo());
+		}
 		model.addAttribute("list",list);
 		return "board/news";
 	}
@@ -75,6 +80,9 @@ public class BoardController {
 	@RequestMapping("free")
 	public String freeList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(3);
+		for(int i=0;i<list.size();i++) {
+		service2.replyUpdate(list.get(i).getNo());
+		}
 		model.addAttribute("list",list);
 		return "board/free";
 	}
@@ -84,6 +92,9 @@ public class BoardController {
 	@RequestMapping("qna")
 	public String qnaList(Model model,HttpServletResponse response) throws Exception {
 		List<BoardDTO> list = service2.boardList(4);
+		for(int i=0;i<list.size();i++) {
+		service2.replyUpdate(list.get(i).getNo());
+		}
 		model.addAttribute("list",list);
 		return "board/qna";
 	}
@@ -163,10 +174,25 @@ public class BoardController {
 	public String boardRead(Model model,@RequestParam int no) throws Exception {
 		service2.boardRead_viewed(no);
 		service2.replyUpdate(no);
+		ArrayList<Integer> commentIndex = new ArrayList<Integer>();
+		ArrayList<List<C_CommentDTO>> c_cListbox = new ArrayList<List<C_CommentDTO>>();
 		List<CommentDTO> commentList = service3.CommentList(no);
+		
+		for(int i=0;i<commentList.size();i++) {
+			commentIndex.add(commentList.get(i).getCno());
+		}
+		for(int i=0;i<commentIndex.size();i++) {
+			c_cListbox.add(service3.C_CommentList(commentIndex.get(i)));
+		}
+		
+		
+		
 		BoardDTO DTO = service2.boardRead(no);
 		model.addAttribute("DTO",DTO);
 		model.addAttribute("commentList",commentList);
+		if(c_cListbox.size()>0) {
+		model.addAttribute("c_cListbox",c_cListbox);
+		}
 		return "board/more";
 	}
 	

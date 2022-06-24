@@ -44,7 +44,7 @@
 	text-align: left;
 	vertical-align:top;
 	min-width: 100%;
-	height: 500px;
+	height: 300px;
 	line-height: 1.5em;
 	padding-left: 2em;
 	padding-top: 2em;
@@ -83,13 +83,19 @@
     }
     .comment .comment_main_con td{
     padding-top: 12px;
-    height: 100px;
+    height: 300px;
     vertical-align: top;
     }
     table.comment_form{
     margin-top: 50px;
     }
-    .c_comment td {padding-left: 30px;}
+    .c_comment td {
+    padding-left: 30px;
+    padding-top: 10px;
+    }
+    .comment_btn{
+    border-bottom: 1px solid #777;
+    }
 	</style>
 </head>
 <body>
@@ -124,7 +130,7 @@
 <tbody>
 <tr>
 <th colspan="3" class="main_tit">
-<h1>${DTO.tit }</h1>
+<h1>Q. ${DTO.tit }</h1>
 </th>
 </tr>
 <tr>
@@ -162,44 +168,30 @@ ${DTO.con }
 <table class="comment">
 <thead>
 <tr class="comment_top">
-<td colspan="3" style="text-align: center;">답변(${fn:length(commentList) })</td>
+<td colspan="3" style="text-align: center; font-size:3em;">A. 답변(${fn:length(commentList) })</td>
 </tr>
 </thead>
 <tbody>
 
-
+<!-- 원래 댓글이지만 여기선 답변임  -->
 <c:forEach items="${commentList }" var="CDTO" varStatus="status">
 <tr class="comment_main_info">
-<td colspan="2" class="comment_winfo">
-${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/>
+<th class="comment_winfo">
+${CDTO.writer }
+</th>
+<th>
+<fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/>
+</th>
 
-<button onclick="$('.cc_form').eq(${status.index}).css('display','block')">답글</button>
-<c:choose>
-	<c:when test="${sid==CDTO.writer }">
-	<!-- 아이디가 같으면 -->
-	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
-	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }','hiddenframe1')">삭제</button>
-	</c:when>
-	
-	<c:when test="${fn:contains(sid,'admin') }">
-	<!-- 운영자면 -->
-	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
-	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }','hiddenframe1')">삭제</button>
-	</c:when>
-
-</c:choose>
-
-
-
-
-
-
-
-</td>
 <td class="comment_thumb">
 추천:${CDTO.thumb }
 <button onclick="window.open('${path}/board/cthumbup?cno=${CDTO.cno }','hiddenframe1')">추천</button>
 </td>
+</tr>
+<tr> <!-- 답변 제목 -->
+<th colspan="3">
+<h1>${CDTO.writer }님의 답변입니다.</h1>
+</th>
 </tr>
 <tr class="comment_main_con">
 <td colspan="3">
@@ -211,26 +203,47 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
 </form>
 </td>
 </tr>
+<tr>
 
-<tr class="cc_form" style="display:none;">
-<form action="${path }/board/ccWrite" method="POST">
+<!-- 답글/수정/삭제 버튼 3종 -->
+<th colspan="3" class="comment_btn">
+<button onclick="$('.cc_form').eq(${status.index}).css('display','block')">답글</button>
+<c:choose>
+	<c:when test="${sid==CDTO.writer }">
+	<!-- 아이디가 같으면 -->
+	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
+	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }&no=${DTO.no }','hiddenframe1')">삭제</button>
+	</c:when>
+	
+	<c:when test="${fn:contains(sid,'admin') }">
+	<!-- 운영자면 -->
+	<button onclick="$('.c_con').eq(${status.index}).css('display','none');$('.cedit_form').eq(${status.index}).css('display','block')">수정</button>
+	<button onclick="window.open('${path}/board/cdel?cno=${CDTO.cno }&no=${DTO.no }','hiddenframe1')">삭제</button>
+	</c:when>
+
+</c:choose>
+
+</th>
+
+</tr>
+<tr class="cc_form" style="display:none; padding-top: 10px;">
 <td>
+<form action="${path }/board/ccWrite" method="POST">
 <input type="hidden" name="cno" value="${CDTO.cno }">
 <input type="hidden" name="writer" value="${sid }">
 <input type="text" name="con">
 <button>작성</button>
-</td>
 </form>
+</td>
 </tr>
 
 
-
+<!-- 대댓글이지만 여기선 답변에 대한 댓글임 -->
 <c:forEach items="${c_cListbox }" var="List">
  <c:forEach items="${List }" var="ccc">
  	<c:if test="${CDTO.cno == ccc.cno }">
  	<tr class="c_comment">
  	<td colspan="2"> ㄴ>&nbsp;&nbsp;&nbsp;${ccc.writer} | <fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/>
- 	
  	<c:choose>
 	<c:when test="${sid==CDTO.writer }">
 	<!-- 아이디가 같으면 -->
@@ -239,7 +252,7 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
 	
 	<c:when test="${fn:contains(sid,'admin') }">
 	<!-- 운영자면 -->
-	<button onclick="window.open('${path}/board/ccdel?ccno=${CDTO.ccno }','hiddenframe1')">삭제</button>
+	<button onclick="window.open('${path}/board/ccdel?ccno=${ccc.ccno }','hiddenframe1')">삭제</button>
 	</c:when>
 
 </c:choose>

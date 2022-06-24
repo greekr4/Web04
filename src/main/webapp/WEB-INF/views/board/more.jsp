@@ -213,16 +213,16 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
 </tr>
 
 <tr class="cc_form" style="display:none;">
-<form action="${path }/board/ccWrite" method="POST">
 <td>
+<form action="${path }/board/ccWrite" method="POST">
 <input type="hidden" name="cno" value="${CDTO.cno }">
 <input type="hidden" name="writer" value="${sid }">
 <input type="text" name="con">
 <button>작성</button>
-</td>
 </form>
-</tr>
+</td>
 
+</tr>
 
 
 <c:forEach items="${c_cListbox }" var="List">
@@ -230,7 +230,6 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
  	<c:if test="${CDTO.cno == ccc.cno }">
  	<tr class="c_comment">
  	<td colspan="2"> ㄴ>&nbsp;&nbsp;&nbsp;${ccc.writer} | <fmt:formatDate value="${DTO.regdate }" pattern="YYYY-MM-dd"/>
- 	
  	<c:choose>
 	<c:when test="${sid==CDTO.writer }">
 	<!-- 아이디가 같으면 -->
@@ -239,7 +238,7 @@ ${CDTO.writer } | <fmt:formatDate value="${CDTO.regdate }" pattern="YYYY-MM-dd"/
 	
 	<c:when test="${fn:contains(sid,'admin') }">
 	<!-- 운영자면 -->
-	<button onclick="window.open('${path}/board/ccdel?ccno=${CDTO.ccno }','hiddenframe1')">삭제</button>
+	<button onclick="window.open('${path}/board/ccdel?ccno=${ccc.ccno }','hiddenframe1')">삭제</button>
 	</c:when>
 
 </c:choose>
