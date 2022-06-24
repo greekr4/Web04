@@ -57,6 +57,13 @@ public class ChatController {
 		return "chat/test2";
 	}
 	
+	//어드민채팅으로
+	@RequestMapping("/admin_chat")
+	public String admin_chat(Model model,HttpServletResponse response,@RequestParam String reqid) throws Exception {
+		model.addAttribute("reqid",reqid);
+		return "chat/admin_chat";
+	}
+	
 	
 	@ResponseBody
 	@RequestMapping("json")
@@ -72,6 +79,8 @@ public class ChatController {
 		return json;
 	}
 	
+	
+	
 	@RequestMapping(value = "send")
 	public String ChatSend(ChatDTO DTO) throws Exception {
 		service.ChatSend(DTO);
@@ -86,6 +95,14 @@ public class ChatController {
 		return "redirect:./test2";
 	}
 
+	//채팅관리
+	@RequestMapping(value = "chatList")
+	public String chatList(Model model) throws Exception {
+		List<ChatDTO> list = service.ChatList_admin();
+		model.addAttribute("list", list);
+		
+		return "chat/chatList";
+	}
 	
 	
 	

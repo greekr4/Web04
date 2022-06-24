@@ -14,6 +14,11 @@ PUBLIC "-//mybatis.org//DTD Mpper 3.0//EN"
 	
 	</select>
 	
+	<select id="ChatList_admin" resultType="com.tkhospital.dto.ChatDTO">
+	select sendid,count(*) as nom from chat where reqid = 'admin2' group by sendid
+	
+	</select>
+	
 	<insert id="ChatSend">
 	
 	   insert into chat values(

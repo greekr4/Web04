@@ -27,4 +27,9 @@ public class ChatDAOImpl implements ChatDAO {
 		
 	}
 
+	@Override
+	public List<ChatDTO> ChatList_admin() throws Exception {
+		return sqlSession.selectList(namespace+".ChatList_admin");
+	}
+
 }

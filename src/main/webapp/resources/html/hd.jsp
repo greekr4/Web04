@@ -23,6 +23,7 @@
             </c:if>
             <c:if test="${sid eq 'admin2' }">
             <li><a href="${path}/member/memberlist">회원목록보기</a></li>
+            <li><a href="${path}/chat/chatList">실시간상담관리</a></li>
             </c:if>
         </ul>
     </div>

@@ -7,6 +7,7 @@ public class ChatDTO {
 	private String reqid;
 	private String cdate;
 	private int answer_val;
+	private int nom; //number of messages
 	
 	
 	public int getCno() {
@@ -44,6 +45,12 @@ public class ChatDTO {
 	}
 	public void setAnswer_val(int answer_val) {
 		this.answer_val = answer_val;
+	}
+	public int getNom() {
+		return nom;
+	}
+	public void setNom(int nom) {
+		this.nom = nom;
 	}
 	
 	

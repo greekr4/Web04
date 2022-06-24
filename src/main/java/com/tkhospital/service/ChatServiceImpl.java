@@ -29,4 +29,11 @@ public class ChatServiceImpl implements ChatService {
 		
 	}
 
+
+
+	@Override
+	public List<ChatDTO> ChatList_admin() throws Exception {
+		return dao.ChatList_admin();
+	}
+
 }
